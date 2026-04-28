@@ -3,124 +3,684 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Open Fields | Community Impact</title>
-  <link rel="preconnect" href="https://googleapis.com" />
-  <link href="https://googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+
+  <!-- SEO -->
+  <title>Community Fields — Playground, Sports & Events | Your Town, NY</title>
+  <meta name="description" content="Community Fields is a non-profit park featuring a playground, youth sports (football, baseball, lacrosse), and event hosting. Rent our field for circuses, concerts, car shows, or our pavilion for private parties." />
+  <meta name="keywords" content="community park, non-profit, youth sports, football, baseball, lacrosse, playground, field rental, pavilion rental, circus, concert, car show, events" />
+  <meta name="author" content="Community Fields" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://communityfields.org/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Community Fields — Playground, Sports & Events" />
+  <meta property="og:description" content="A non-profit community park with playground, youth sports, and event venue. Rent our field or pavilion for your next event." />
+  <meta property="og:url" content="https://communityfields.org/" />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1560807707-8cc77767d783?auto=format&fit=crop&w=1200&q=80" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:site_name" content="Community Fields" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Community Fields — Playground, Sports & Events" />
+  <meta name="twitter:description" content="Non-profit community park with sports, playground, and event rentals." />
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1560807707-8cc77767d783?auto=format&fit=crop&w=1200&q=80" />
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SportsActivityLocation",
+    "additionalType": "https://schema.org/NonprofitType",
+    "name": "Community Fields",
+    "description": "Non-profit community park featuring a playground, youth sports programs, and event venue for circuses, concerts, car shows, and private parties.",
+    "url": "https://communityfields.org",
+    "image": "https://scontent-lga3-2.xx.fbcdn.net/v/t39.30808-6/478542767_2645835735606379_7750743411236585110_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=7b2446&_nc_ohc=olDLamXXeoUQ7kNvwFBXM-f&_nc_oc=AdqpnVFOEyO4ENXKuYAVwoa5FUO8_RsmsebSPdbHsqzY1aN_OCGJx7A8_mD02KEwenk&_nc_zt=23&_nc_ht=scontent-lga3-2.xx&_nc_gid=R2ojBTA3ajyalAR8oPGvnA&_nc_ss=7b289&oh=00_Af17xH-hGyfTU2v08RvqS1cX4u3bFNuMPI7szV4RE3PAgQ&oe=69F5D31D",
+    "telephone": "(555) 987-6543",
+    "email": "info@communityfields.org",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "100 Park Drive",
+      "addressLocality": "Your Town",
+      "addressRegion": "NY",
+      "postalCode": "10001",
+      "addressCountry": "US"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": "40.7128",
+      "longitude": "-74.0060"
+    },
+    "openingHoursSpecification": [
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "08:00", "closes": "20:00" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Saturday","Sunday"], "opens": "07:00", "closes": "21:00" }
+    ],
+    "amenityFeature": [
+      { "@type": "LocationFeatureSpecification", "name": "Playground", "value": true },
+      { "@type": "LocationFeatureSpecification", "name": "Sports Fields", "value": true },
+      { "@type": "LocationFeatureSpecification", "name": "Pavilion", "value": true }
+    ],
+    "sameAs": [
+      "https://facebook.com/YOUR_PAGE_NAME",
+      "https://instagram.com/YOUR_USERNAME"
+    ]
+  }
+  </script>
+
+  <!-- Security -->
+  <meta http-equiv="Content-Security-Policy"
+    content="default-src 'self';
+             script-src 'self' 'unsafe-inline';
+             style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+             font-src https://fonts.gstatic.com;
+             img-src 'self' data: https://images.unsplash.com https://*.unsplash.com blob:;
+             frame-src https://calendar.google.com https://www.facebook.com https://formsubmit.co;
+             connect-src https://formsubmit.co;" />
+
+  <!-- Performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://images.unsplash.com" />
+  <link rel="dns-prefetch" href="https://formsubmit.co" />
+  <link rel="preload" as="image" href="https://images.unsplash.com/photo-1560807707-8cc77767d783?auto=format&fit=crop&w=1600&q=80" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏟️</text></svg>" />
+  <meta name="theme-color" content="#1e293b" />
+
   <style>
     :root, [data-theme="light"] {
-      --primary: #2d6a4f; --accent: #38bdf8; --gold: #fbbf24;
-      --cream: #f8fafc; --text: #0f172a; --text-light: #64748b;
-      --card-bg: #ffffff; --footer-bg: #1b4332; --radius: 20px;
+      --green-dark:#1e293b;--green:#475569;--green-medium:#334155;
+      --green-light:#94a3b8;--cream:#f8fafc;--cream-dark:#e2e8f0;
+      --cream-medium:#f1f5f9;--accent:#64748b;--accent-light:#94a3b8;
+      --gold:#cbd5e1;--text:#0f172a;--text-light:#64748b;
+      --white:#ffffff;--card-bg:#ffffff;--nav-bg:rgba(248,250,252,0.88);
+      --footer-bg:#0f172a;--footer-text:#f8fafc;--input-bg:#f8fafc;
+      --input-border:#e2e8f0;--danger:#c0392b;--success:#27ae60;
+      --success-light:rgba(39,174,96,0.1);
+      --shadow-sm:0 4px 12px rgba(15,23,42,0.08);
+      --shadow-md:0 8px 30px rgba(15,23,42,0.1);
+      --shadow-lg:0 16px 50px rgba(15,23,42,0.14);
+      --radius:20px;--radius-sm:12px;
     }
     [data-theme="dark"] {
-      --primary: #95d5b2; --cream: #0f172a; --text: #f8fafc; 
-      --text-light: #94a3b8; --card-bg: #1e293b;
+      --green-dark:#e2e8f0;--green:#94a3b8;--green-medium:#64748b;
+      --green-light:#94a3b8;--cream:#0f172a;--cream-dark:#1e293b;
+      --cream-medium:#334155;--accent:#94a3b8;--accent-light:#cbd5e1;
+      --gold:#cbd5e1;--text:#e2e8f0;--text-light:#94a3b8;
+      --white:#0f172a;--card-bg:#1e293b;--nav-bg:rgba(15,23,42,0.9);
+      --footer-bg:#020617;--footer-text:#e2e8f0;--input-bg:#334155;
+      --input-border:#475569;--danger:#e74c3c;--success:#2ecc71;
+      --success-light:rgba(46,204,113,0.15);
+      --shadow-sm:0 4px 12px rgba(0,0,0,0.2);
+      --shadow-md:0 8px 30px rgba(0,0,0,0.25);
+      --shadow-lg:0 16px 50px rgba(0,0,0,0.3);
     }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: "Inter", sans-serif; background: var(--cream); color: var(--text); scroll-behavior: smooth; }
-    .container { width: min(1200px, 90%); margin: auto; }
-    section { padding: 80px 0; }
-    .fade-up { opacity: 0; transform: translateY(20px); transition: 0.6s ease-out; }
-    .fade-up.visible { opacity: 1; transform: translateY(0); }
 
-    /* GALLERY GRID */
-    .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; }
-    .gallery-item { height: 250px; border-radius: 12px; overflow: hidden; position: relative; }
-    .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: 0.3s; }
-    .gallery-item:hover img { transform: scale(1.1); }
+    *{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{font-family:"Inter",sans-serif;background:var(--cream);color:var(--text);line-height:1.7;overflow-x:hidden;transition:background 0.4s,color 0.4s}
+    h1,h2,h3{font-family:"Playfair Display",serif}
+    a{text-decoration:none;color:inherit}
+    img{max-width:100%;display:block;height:auto}
+    .container{width:min(1140px,90%);margin:auto}
 
-    /* CALENDAR WIDGET */
-    .calendar-card { background: var(--card-bg); padding: 30px; border-radius: var(--radius); box-shadow: 0 4px 20px rgba(0,0,0,0.05); }
-    .event-item { display: flex; gap: 20px; padding: 15px 0; border-bottom: 1px solid rgba(0,0,0,0.1); }
-    .event-date { background: var(--primary); color: white; padding: 10px; border-radius: 8px; text-align: center; min-width: 60px; }
+    .fade-up{opacity:0;transform:translateY(40px);transition:opacity 0.8s ease,transform 0.8s ease}
+    .fade-up.visible{opacity:1;transform:translateY(0)}
 
-    /* FOOTER & CONTACT */
-    footer { background: var(--footer-bg); color: white; padding: 60px 0 20px; }
-    .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; margin-bottom: 40px; }
-    .social-links { display: flex; gap: 15px; margin-top: 15px; list-style: none; }
-    .social-links a { color: white; font-size: 1.2rem; transition: 0.3s; }
-    .social-links a:hover { color: var(--gold); }
+    /* NAVBAR */
+    header{position:fixed;top:0;left:0;width:100%;z-index:1000;background:var(--nav-bg);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-bottom:1px solid rgba(100,116,139,0.1);transition:box-shadow 0.3s,background 0.4s}
+    header.scrolled{box-shadow:var(--shadow-sm)}
+    nav{display:flex;justify-content:space-between;align-items:center;padding:16px 0}
+    .logo{font-family:"Playfair Display",serif;font-size:1.5rem;font-weight:700;color:var(--green-dark);letter-spacing:-0.5px}
+    .logo span{color:var(--accent)}
+    .nav-right{display:flex;align-items:center;gap:20px}
+    .nav-links{display:flex;gap:22px;list-style:none}
+    .nav-links a{font-size:0.83rem;font-weight:600;color:var(--green);position:relative;transition:color 0.3s}
+    .nav-links a::after{content:"";position:absolute;bottom:-4px;left:0;width:0;height:2px;background:var(--accent);border-radius:2px;transition:width 0.3s}
+    .nav-links a:hover{color:var(--accent)}
+    .nav-links a:hover::after{width:100%}
+    .nav-cta{padding:10px 22px;background:var(--accent);color:#fff !important;border-radius:999px;font-size:0.85rem;transition:0.3s}
+    .nav-cta::after{display:none !important}
+    .nav-cta:hover{background:var(--green-medium);transform:scale(1.05)}
+    .theme-toggle{width:44px;height:44px;border-radius:50%;border:2px solid var(--input-border);background:var(--card-bg);cursor:pointer;display:grid;place-items:center;font-size:1.2rem;transition:0.3s;flex-shrink:0}
+    .theme-toggle:hover{background:var(--accent);border-color:var(--accent);transform:rotate(30deg) scale(1.1)}
+    .theme-toggle .icon-sun,.theme-toggle .icon-moon{display:none}
+    [data-theme="light"] .theme-toggle .icon-moon{display:block}
+    [data-theme="dark"] .theme-toggle .icon-sun{display:block}
+    .menu-toggle{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px}
+    .menu-toggle span{width:26px;height:2.5px;background:var(--green-dark);border-radius:4px;transition:0.3s}
+
+    /* HERO */
+    .hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;background:#1e293b}
+    .hero-bg{position:absolute;inset:0;background:linear-gradient(135deg,rgba(15,23,42,0.75),rgba(15,23,42,0.45)),url("https://images.unsplash.com/photo-1560807707-8cc77767d783?auto=format&fit=crop&w=1600&q=80") center/cover no-repeat;transform:scale(1.05);animation:heroPan 20s ease-in-out infinite alternate;will-change:transform}
+    @keyframes heroPan{0%{transform:scale(1.05) translate(0,0)}100%{transform:scale(1.1) translate(-1%,-1%)}}
+    .hero .container{position:relative;z-index:2;padding:140px 0 80px}
+    .hero-content{max-width:650px}
+    .hero-badge{display:inline-block;padding:8px 18px;background:rgba(100,116,139,0.2);border:1px solid rgba(100,116,139,0.4);border-radius:999px;font-size:0.8rem;font-weight:600;color:var(--accent-light);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:24px;backdrop-filter:blur(4px)}
+    .hero h1{font-size:3.8rem;color:#fff;line-height:1.15;margin-bottom:20px;letter-spacing:-1px}
+    .hero h1 em{font-style:italic;color:var(--accent-light)}
+    .hero p{font-size:1.1rem;color:rgba(255,255,255,0.8);margin-bottom:36px;max-width:520px;line-height:1.8}
+    .hero-btns{display:flex;gap:14px;flex-wrap:wrap}
+    .btn-primary{display:inline-flex;align-items:center;gap:8px;padding:16px 32px;background:var(--accent);color:#fff;border-radius:999px;font-weight:600;font-size:0.95rem;transition:0.3s;box-shadow:0 8px 24px rgba(100,116,139,0.35)}
+    .btn-primary:hover{background:var(--green-medium);transform:translateY(-3px)}
+    .btn-secondary{display:inline-flex;align-items:center;gap:8px;padding:16px 32px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.25);color:#fff;border-radius:999px;font-weight:600;font-size:0.95rem;transition:0.3s;backdrop-filter:blur(4px)}
+    .btn-secondary:hover{background:rgba(255,255,255,0.2);transform:translateY(-3px)}
+    .hero-stats{display:flex;gap:40px;margin-top:60px;padding-top:40px;border-top:1px solid rgba(255,255,255,0.15)}
+    .stat h3{font-size:2rem;color:var(--accent-light)}
+    .stat p{font-size:0.85rem;color:rgba(255,255,255,0.6);margin:0}
+
+    /* SECTIONS */
+    section{padding:100px 0}
+    .section-header{text-align:center;margin-bottom:60px}
+    .section-label{display:inline-block;font-size:0.75rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--accent);margin-bottom:12px}
+    .section-header h2{font-size:2.6rem;color:var(--green-dark);margin-bottom:14px;letter-spacing:-0.5px}
+    .section-header p{color:var(--text-light);max-width:550px;margin:auto}
+
+    /* ABOUT */
+    .about-section{background:var(--cream-dark);transition:background 0.4s}
+    .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+    .about-images{position:relative}
+    .about-img-main{border-radius:var(--radius);box-shadow:var(--shadow-lg);width:100%;height:480px;object-fit:cover}
+    .about-img-float{position:absolute;bottom:-30px;right:-30px;width:200px;height:200px;object-fit:cover;border-radius:var(--radius);border:6px solid var(--cream-dark);box-shadow:var(--shadow-md)}
+    .about-text .section-label{text-align:left}
+    .about-text h2{font-size:2.4rem;color:var(--green-dark);margin-bottom:20px;line-height:1.2}
+    .about-text p{color:var(--text-light);margin-bottom:18px;font-size:0.95rem}
+    .about-features{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:30px}
+    .about-feature{display:flex;align-items:center;gap:10px;padding:14px 18px;background:var(--card-bg);border-radius:var(--radius-sm);box-shadow:var(--shadow-sm);transition:background 0.4s}
+    .about-feature-icon{width:40px;height:40px;background:var(--cream-medium);border-radius:10px;display:grid;place-items:center;font-size:1.2rem;flex-shrink:0}
+    .about-feature span{font-size:0.85rem;font-weight:600;color:var(--green)}
+
+    /* CALENDAR */
+    .calendar-section{background:var(--cream);transition:background 0.4s}
+    .calendar-wrapper{background:var(--card-bg);padding:24px;border-radius:var(--radius);box-shadow:var(--shadow-md);overflow:hidden}
+    .calendar-tabs{display:flex;gap:10px;margin-bottom:20px;flex-wrap:wrap}
+    .cal-tab{padding:10px 22px;border-radius:999px;border:2px solid var(--input-border);background:transparent;color:var(--text-light);font-family:"Inter",sans-serif;font-size:0.85rem;font-weight:600;cursor:pointer;transition:0.3s}
+    .cal-tab:hover,.cal-tab.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+    .calendar-frame{width:100%;min-height:600px;border:none;border-radius:var(--radius-sm)}
+    .calendar-note{margin-top:16px;padding:14px 20px;background:var(--cream-dark);border-radius:var(--radius-sm);display:flex;align-items:center;gap:10px;font-size:0.85rem;color:var(--text-light)}
+    .calendar-note strong{color:var(--accent)}
+
+    /* RENTALS */
+    .rentals-section{background:var(--cream-dark);transition:background 0.4s}
+    .rentals-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px}
+    .rental-card{background:var(--card-bg);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-md);transition:0.4s}
+    .rental-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg)}
+    .rental-card-img{height:280px;overflow:hidden;position:relative}
+    .rental-card-img img{width:100%;height:100%;object-fit:cover;transition:transform 0.6s}
+    .rental-card:hover .rental-card-img img{transform:scale(1.06)}
+    .rental-card-body{padding:32px}
+    .rental-card-body h3{font-size:1.5rem;color:var(--green-dark);margin-bottom:10px}
+    .rental-card-body>p{color:var(--text-light);font-size:0.92rem;margin-bottom:20px;line-height:1.6}
+    .rental-features{display:flex;flex-direction:column;gap:10px;margin-bottom:24px}
+    .rental-feature{display:flex;align-items:center;gap:10px;font-size:0.88rem;color:var(--text)}
+    .rental-feature-icon{font-size:1.1rem}
+    .rental-pricing{display:flex;align-items:baseline;gap:8px;margin-bottom:20px;padding:16px;background:var(--cream);border-radius:var(--radius-sm)}
+    .rental-price{font-family:"Playfair Display",serif;font-size:1.8rem;font-weight:700;color:var(--accent)}
+    .rental-period{font-size:0.85rem;color:var(--text-light)}
+    .rental-book-btn{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;background:var(--accent);color:#fff;border-radius:999px;font-weight:600;font-size:0.9rem;transition:0.3s;box-shadow:0 6px 20px rgba(100,116,139,0.3)}
+    .rental-book-btn:hover{background:var(--green-medium);transform:translateY(-2px)}
+
+    /* GALLERY */
+    .gallery-section{background:var(--cream);transition:background 0.4s}
+    .gallery-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px}
+    .gallery-item{position:relative;border-radius:var(--radius);overflow:hidden;cursor:pointer;box-shadow:var(--shadow-sm);transition:0.4s;aspect-ratio:4/3}
+    .gallery-item:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg)}
+    .gallery-item img{width:100%;height:100%;object-fit:cover;transition:transform 0.6s}
+    .gallery-item:hover img{transform:scale(1.08)}
+    .gallery-overlay{position:absolute;inset:0;background:linear-gradient(transparent 50%,rgba(15,23,42,0.8));opacity:0;transition:opacity 0.4s;display:flex;align-items:flex-end;padding:20px}
+    .gallery-item:hover .gallery-overlay{opacity:1}
+    .gallery-overlay p{color:#fff;font-weight:600;font-size:0.95rem}
+
+    .lightbox{position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,0.92);display:none;place-items:center;backdrop-filter:blur(8px)}
+    .lightbox.active{display:grid}
+    .lightbox img{max-width:90vw;max-height:85vh;border-radius:12px;box-shadow:0 20px 60px rgba(0,0,0,0.5);animation:lbIn 0.3s}
+    @keyframes lbIn{from{opacity:0;transform:scale(0.9)}to{opacity:1;transform:scale(1)}}
+    .lightbox-caption{position:absolute;bottom:30px;left:50%;transform:translateX(-50%);color:#fff;background:rgba(0,0,0,0.5);padding:10px 24px;border-radius:999px;backdrop-filter:blur(6px)}
+    .lightbox-close{position:absolute;top:20px;right:30px;width:50px;height:50px;border-radius:50%;background:rgba(255,255,255,0.1);border:none;color:#fff;font-size:1.5rem;cursor:pointer;display:grid;place-items:center;transition:0.3s}
+    .lightbox-close:hover{background:rgba(255,255,255,0.25)}
+    .lightbox-nav{position:absolute;top:50%;transform:translateY(-50%);width:50px;height:50px;border-radius:50%;background:rgba(255,255,255,0.1);border:none;color:#fff;font-size:1.3rem;cursor:pointer;display:grid;place-items:center;transition:0.3s}
+    .lightbox-nav:hover{background:rgba(255,255,255,0.25)}
+    .lightbox-prev{left:20px}.lightbox-next{right:20px}
+
+    /* DONATION */
+    .donate-section{background:var(--cream-dark);position:relative;overflow:hidden;transition:background 0.4s}
+    .donate-layout{display:grid;grid-template-columns:1fr 1.3fr;gap:50px;align-items:start;position:relative;z-index:2}
+    .donate-info{padding:40px;background:#1e293b;border-radius:var(--radius);color:#f8fafc;box-shadow:var(--shadow-lg);position:sticky;top:100px}
+    .donate-info h3{font-size:1.8rem;margin-bottom:10px;color:#f8fafc}
+    .donate-info>p{color:rgba(248,250,252,0.75);font-size:0.92rem;margin-bottom:28px}
+    .donate-progress{margin-bottom:28px}
+    .donate-progress-header{display:flex;justify-content:space-between;margin-bottom:8px}
+    .donate-progress-header span{font-size:0.85rem}
+    .donate-progress-header .raised{color:var(--accent-light);font-weight:700}
+    .donate-progress-header .goal{color:rgba(248,250,252,0.6)}
+    .progress-track{height:12px;background:rgba(255,255,255,0.1);border-radius:6px;overflow:hidden}
+    .progress-fill{height:100%;background:linear-gradient(90deg,var(--accent),var(--gold));border-radius:6px;transition:width 1.5s ease;position:relative}
+    .progress-fill::after{content:"";position:absolute;right:0;top:0;bottom:0;width:30px;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.3));animation:shine 2s infinite}
+    @keyframes shine{0%,100%{opacity:0}50%{opacity:1}}
+    .donate-progress p{font-size:0.8rem;color:rgba(248,250,252,0.5);margin-top:8px}
+    .donate-impacts{display:flex;flex-direction:column;gap:14px}
+    .donate-impact{display:flex;align-items:center;gap:14px;padding:16px;background:rgba(100,116,139,0.1);border-radius:var(--radius-sm);border:1px solid rgba(100,116,139,0.15)}
+    .donate-impact-icon{width:44px;height:44px;background:rgba(100,116,139,0.15);border-radius:12px;display:grid;place-items:center;font-size:1.3rem;flex-shrink:0}
+    .donate-impact-text h4{font-family:"Inter",sans-serif;font-size:0.82rem;font-weight:700;color:var(--accent-light);margin-bottom:2px}
+    .donate-impact-text p{font-size:0.82rem;color:rgba(248,250,252,0.7);margin:0}
+    .donate-card{background:var(--card-bg);border-radius:var(--radius);box-shadow:var(--shadow-lg);overflow:hidden;transition:background 0.4s}
+    .donate-card-header{padding:28px 32px 20px;border-bottom:1px solid var(--input-border)}
+    .donate-card-header h3{font-size:1.5rem;color:var(--green-dark);margin-bottom:6px}
+    .donate-card-header p{font-size:0.88rem;color:var(--text-light)}
+    .donate-card-body{padding:28px 32px}
+    .donate-freq{display:flex;background:var(--cream-dark);border-radius:999px;padding:4px;margin-bottom:24px}
+    .donate-freq-btn{flex:1;padding:12px;text-align:center;border-radius:999px;border:none;background:transparent;font-family:"Inter",sans-serif;font-size:0.88rem;font-weight:600;color:var(--text-light);cursor:pointer;transition:0.3s}
+    .donate-freq-btn.active{background:var(--accent);color:#fff;box-shadow:var(--shadow-sm)}
+    .monthly-badge{display:inline-block;font-size:0.65rem;background:var(--success);color:#fff;padding:2px 8px;border-radius:999px;margin-left:6px;font-weight:700}
+    .donate-amounts{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:20px}
+    .donate-amount-btn{padding:18px 10px;text-align:center;border-radius:var(--radius-sm);border:2px solid var(--input-border);background:var(--input-bg);cursor:pointer;transition:0.3s;font-family:"Inter",sans-serif}
+    .donate-amount-btn:hover{border-color:var(--accent)}
+    .donate-amount-btn.selected{border-color:var(--accent);background:rgba(100,116,139,0.1);box-shadow:0 0 0 3px rgba(100,116,139,0.15)}
+    .donate-amount-btn .amount{font-size:1.5rem;font-weight:700;color:var(--green-dark);font-family:"Playfair Display",serif;display:block}
+    .donate-amount-btn .desc{font-size:0.72rem;color:var(--text-light);margin-top:4px;display:block}
+    .donate-custom{display:flex;border:2px solid var(--input-border);border-radius:var(--radius-sm);overflow:hidden;margin-bottom:24px;background:var(--input-bg);transition:0.3s}
+    .donate-custom:focus-within{border-color:var(--accent)}
+    .donate-custom-prefix{padding:14px 16px;background:var(--cream-dark);font-size:1.1rem;font-weight:700;color:var(--accent);border-right:2px solid var(--input-border)}
+    .donate-custom input{flex:1;padding:14px;border:none;background:transparent;font-family:"Inter",sans-serif;font-size:1.1rem;font-weight:600;color:var(--text);outline:none}
+    .pay-label{font-size:0.82rem;font-weight:700;color:var(--green);text-transform:uppercase;letter-spacing:1px;margin-bottom:12px}
+    .pay-methods{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px}
+    .pay-btn{display:flex;align-items:center;justify-content:center;gap:10px;padding:16px;border-radius:var(--radius-sm);border:2px solid var(--input-border);background:var(--input-bg);cursor:pointer;transition:0.3s;font-family:"Inter",sans-serif;font-size:0.9rem;font-weight:600;color:var(--text)}
+    .pay-btn:hover{border-color:var(--accent)}
+    .pay-btn.selected{border-color:var(--accent);background:rgba(100,116,139,0.1)}
+    .pay-icon{font-size:1.3rem}
+    .donate-submit{width:100%;padding:18px;border:none;border-radius:var(--radius-sm);font-family:"Inter",sans-serif;font-size:1.05rem;font-weight:700;cursor:pointer;transition:0.3s;display:flex;align-items:center;justify-content:center;gap:10px;color:#fff;box-shadow:0 8px 24px rgba(100,116,139,0.3)}
+    .donate-submit.paypal{background:#003087}
+    .donate-submit.stripe{background:#635bff}
+    .donate-submit.venmo{background:#3d95ce}
+    .donate-submit.cashapp{background:#00c853}
+    .donate-submit:hover{transform:translateY(-2px)}
+    .donate-secure{display:flex;align-items:center;justify-content:center;gap:6px;margin-top:14px;font-size:0.78rem;color:var(--text-light)}
+    .donate-status{margin-top:14px;padding:14px 20px;border-radius:var(--radius-sm);font-size:0.9rem;font-weight:500;display:none;text-align:center}
+    .donate-status.success{display:block;background:var(--success-light);color:var(--success)}
+    .donate-status.error{display:block;background:rgba(192,57,43,0.1);color:var(--danger)}
+
+    .qr-modal{position:fixed;inset:0;z-index:10000;background:rgba(0,0,0,0.7);display:none;place-items:center;backdrop-filter:blur(6px)}
+    .qr-modal.active{display:grid}
+    .qr-modal-content{background:var(--card-bg);border-radius:var(--radius);padding:40px;text-align:center;max-width:380px;box-shadow:var(--shadow-lg);animation:lbIn 0.3s}
+    .qr-modal-content h3{font-size:1.4rem;color:var(--green-dark);margin-bottom:10px}
+    .qr-modal-content p{font-size:0.9rem;color:var(--text-light);margin-bottom:20px}
+    .qr-placeholder{width:200px;height:200px;margin:0 auto 20px;background:var(--cream-dark);border-radius:var(--radius-sm);display:grid;place-items:center;font-size:0.85rem;color:var(--text-light);border:2px dashed var(--input-border)}
+    .qr-modal-close{padding:12px 28px;background:var(--accent);color:#fff;border:none;border-radius:999px;font-family:"Inter",sans-serif;font-weight:600;cursor:pointer}
+    .qr-or{font-size:0.82rem;color:var(--text-light);margin:12px 0}
+    .qr-copy-btn{padding:10px 20px;background:var(--cream-dark);color:var(--green);border:2px solid var(--input-border);border-radius:999px;font-family:"Inter",sans-serif;font-weight:600;font-size:0.82rem;cursor:pointer}
+
+    /* CONTACT */
+    .contact-section{background:var(--cream);transition:background 0.4s}
+    .contact-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:50px;align-items:start}
+    .contact-info{padding:40px;background:#1e293b;border-radius:var(--radius);color:#f8fafc;box-shadow:var(--shadow-lg)}
+    .contact-info h3{font-size:1.8rem;margin-bottom:14px;color:#f8fafc}
+    .contact-info>p{color:rgba(248,250,252,0.7);margin-bottom:30px;font-size:0.92rem}
+    .contact-detail{display:flex;align-items:flex-start;gap:14px;margin-bottom:22px}
+    .contact-detail-icon{width:44px;height:44px;background:rgba(100,116,139,0.15);border-radius:12px;display:grid;place-items:center;font-size:1.1rem;flex-shrink:0}
+    .contact-detail h4{font-family:"Inter",sans-serif;font-size:0.8rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--accent-light);margin-bottom:4px}
+    .contact-detail p{color:rgba(248,250,252,0.8);font-size:0.9rem;margin:0;line-height:1.5}
+    .contact-form{background:var(--card-bg);padding:40px;border-radius:var(--radius);box-shadow:var(--shadow-md);transition:background 0.4s}
+    .contact-form h3{font-size:1.6rem;color:var(--green-dark);margin-bottom:8px}
+    .contact-form>p{color:var(--text-light);margin-bottom:28px;font-size:0.9rem}
+    .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    .form-group{margin-bottom:20px}
+    .form-group label{display:block;margin-bottom:8px;font-size:0.85rem;font-weight:600;color:var(--green)}
+    .form-group input,.form-group textarea,.form-group select{width:100%;padding:14px 18px;border:2px solid var(--input-border);border-radius:var(--radius-sm);outline:none;font-family:"Inter",sans-serif;font-size:0.95rem;color:var(--text);background:var(--input-bg);transition:0.3s}
+    .form-group input:focus,.form-group textarea:focus,.form-group select:focus{border-color:var(--accent);box-shadow:0 0 0 4px rgba(100,116,139,0.15);background:var(--card-bg)}
+    .form-group textarea{resize:vertical;min-height:130px}
+    .form-submit{display:inline-flex;align-items:center;gap:8px;padding:16px 36px;background:var(--accent);color:#fff;border:none;border-radius:999px;font-family:"Inter",sans-serif;font-size:0.95rem;font-weight:600;cursor:pointer;transition:0.3s;box-shadow:0 8px 24px rgba(100,116,139,0.3)}
+    .form-submit:hover{background:var(--green-medium);transform:translateY(-2px)}
+    .form-submit:disabled{opacity:0.6;cursor:not-allowed;transform:none}
+    .form-status{margin-top:16px;padding:14px 20px;border-radius:var(--radius-sm);font-size:0.9rem;font-weight:500;display:none}
+    .form-status.success{display:block;background:#d4edda;color:#155724;border:1px solid #c3e6cb}
+    .form-status.error{display:block;background:#f8d7da;color:#721c24;border:1px solid #f5c6cb}
+    .form-status.sending{display:block;background:var(--cream-dark);color:var(--text-light);border:1px solid var(--input-border)}
+
+    .scroll-top{position:fixed;bottom:24px;right:24px;z-index:900;width:50px;height:50px;border-radius:50%;background:var(--accent);color:#fff;border:none;font-size:1.3rem;cursor:pointer;box-shadow:var(--shadow-md);display:grid;place-items:center;opacity:0;visibility:hidden;transform:translateY(20px);transition:0.4s}
+    .scroll-top.visible{opacity:1;visibility:visible;transform:translateY(0)}
+    .scroll-top:hover{background:var(--green-medium);transform:translateY(-3px) scale(1.05)}
+
+    footer{background:var(--footer-bg);padding:60px 0 30px;color:var(--footer-text);transition:background 0.4s}
+    .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:40px;margin-bottom:50px}
+    .footer-brand .logo{color:#f8fafc;font-size:1.4rem;margin-bottom:14px}
+    .footer-brand p{color:rgba(248,250,252,0.6);font-size:0.88rem;max-width:280px}
+    .footer-col h4{font-family:"Inter",sans-serif;font-size:0.8rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--accent-light);margin-bottom:18px}
+    .footer-col ul{list-style:none}
+    .footer-col li{margin-bottom:10px}
+    .footer-col a{color:rgba(248,250,252,0.6);font-size:0.88rem;transition:color 0.3s}
+    .footer-col a:hover{color:var(--accent-light)}
+    .footer-bottom{border-top:1px solid rgba(248,250,252,0.1);padding-top:24px;display:flex;justify-content:space-between;align-items:center;font-size:0.82rem;color:rgba(248,250,252,0.4)}
+
+    @media(max-width:900px){.hero h1{font-size:2.8rem}.about-grid,.donate-layout,.rentals-grid{grid-template-columns:1fr}.about-img-float{display:none}.about-img-main{height:350px}.contact-grid{grid-template-columns:1fr}.footer-grid{grid-template-columns:1fr 1fr}.calendar-frame{min-height:500px}.donate-info{position:static}}
+    @media(max-width:640px){.nav-links{display:none;position:absolute;top:100%;left:0;width:100%;background:var(--nav-bg);backdrop-filter:blur(18px);flex-direction:column;padding:20px;gap:16px;box-shadow:var(--shadow-md)}.nav-links.active{display:flex}.menu-toggle{display:flex}.hero h1{font-size:2.2rem}.hero-btns,.hero-stats{flex-direction:column}.hero-stats{gap:16px}.form-row{grid-template-columns:1fr}.about-features{grid-template-columns:1fr}.section-header h2{font-size:2rem}.footer-grid{grid-template-columns:1fr}.footer-bottom{flex-direction:column;gap:10px;text-align:center}.calendar-frame{min-height:400px}.gallery-grid{grid-template-columns:1fr 1fr}.donate-amounts{grid-template-columns:repeat(2,1fr)}.pay-methods{grid-template-columns:1fr}}
   </style>
 </head>
 <body>
 
-  <!-- NAVIGATION -->
-  <header style="position:fixed; width:100%; z-index:100; background:rgba(255,255,255,0.9); backdrop-filter:blur(5px); border-bottom:1px solid #eee;">
-    <div class="container" style="display:flex; justify-content:space-between; align-items:center; padding:15px 0;">
-      <h2 style="font-family:'Playfair Display'; color:var(--primary);">Open Fields</h2>
-      <nav style="display:flex; gap:20px; align-items:center;">
-        <a href="#gallery">Gallery</a>
-        <a href="#events">Calendar</a>
-        <button id="themeToggle" style="border:none; background:none; cursor:pointer; font-size:1.2rem;">🌓</button>
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-close" id="lbClose" aria-label="Close">✕</button>
+    <button class="lightbox-nav lightbox-prev" id="lbPrev" aria-label="Previous">‹</button>
+    <button class="lightbox-nav lightbox-next" id="lbNext" aria-label="Next">›</button>
+    <img src="" alt="" id="lbImg" decoding="async" />
+    <div class="lightbox-caption" id="lbCaption"></div>
+  </div>
+
+  <div class="qr-modal" id="qrModal">
+    <div class="qr-modal-content">
+      <h3 id="qrTitle">Scan to Pay</h3><p id="qrDesc"></p>
+      <div class="qr-placeholder" id="qrImage">Add QR code in config</div>
+      <p class="qr-or">— or send directly to —</p>
+      <button class="qr-copy-btn" id="qrCopyBtn">📋 Copy</button><br/><br/>
+      <button class="qr-modal-close" id="qrClose">Done ✓</button>
+    </div>
+  </div>
+
+  <button class="scroll-top" id="scrollTop" aria-label="Scroll to top">↑</button>
+
+  <header id="navbar">
+    <div class="container">
+      <nav aria-label="Main navigation">
+        <a href="#home" class="logo" aria-label="Community Fields home">Community <span>Fields</span></a>
+        <div class="nav-right">
+          <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+          <ul class="nav-links" id="navLinks" role="menubar">
+            <li role="none"><a href="#home" role="menuitem">Home</a></li>
+            <li role="none"><a href="#about" role="menuitem">About</a></li>
+            <li role="none"><a href="#events" role="menuitem">Calendar</a></li>
+            <li role="none"><a href="#rentals" role="menuitem">Rentals</a></li>
+            <li role="none"><a href="#gallery" role="menuitem">Gallery</a></li>
+            <li role="none"><a href="#donate" role="menuitem">Donate</a></li>
+            <li role="none"><a href="#contact" role="menuitem">Contact</a></li>
+            <li role="none"><a href="#rentals" class="nav-cta" role="menuitem">Book Now</a></li>
+          </ul>
+          <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode"><span class="icon-moon">🌙</span><span class="icon-sun">☀️</span></button>
+        </div>
       </nav>
     </div>
   </header>
 
-  <!-- GALLERY -->
-  <section id="gallery" class="container">
-    <h2 style="text-align:center; margin-bottom:40px; font-family:'Playfair Display';">Community Impact Gallery</h2>
-    <div class="gallery-grid">
-      <div class="gallery-item fade-up"><img src="https://unsplash.com" alt="Kids playing"></div>
-      <div class="gallery-item fade-up"><img src="https://unsplash.com" alt="Soccer field"></div>
-      <div class="gallery-item fade-up"><img src="https://unsplash.com" alt="Inclusive swing"></div>
-      <div class="gallery-item fade-up"><img src="https://unsplash.com" alt="Volunteers"></div>
-    </div>
-  </section>
+  <main>
 
-  <!-- CALENDAR -->
-  <section id="events" style="background:var(--cream-dark);">
-    <div class="container">
-      <h2 style="text-align:center; margin-bottom:40px; font-family:'Playfair Display';">Upcoming Events</h2>
-      <div class="calendar-card fade-up">
-        <div class="event-item">
-          <div class="event-date"><strong>12</strong><br>MAY</div>
-          <div><h3>Grand Opening: Unity Field</h3><p>Ribbon cutting ceremony and youth exhibition match.</p></div>
+    <!-- HERO -->
+    <section class="hero" id="home">
+      <div class="hero-bg" role="img" aria-label="Community park and playground"></div>
+      <div class="container"><div class="hero-content">
+        <div class="hero-badge">🏟️ Non-Profit Community Park</div>
+        <h1>Where Community Comes to <em>Play</em></h1>
+        <p>A vibrant non-profit park with a playground, youth sports programs, and an event venue for circuses, concerts, car shows, and private parties.</p>
+        <div class="hero-btns"><a href="#about" class="btn-primary">Learn More ↓</a><a href="#rentals" class="btn-secondary">Rent Our Venue →</a></div>
+        <div class="hero-stats">
+          <div class="stat"><h3>500+</h3><p>Youth Athletes</p></div>
+          <div class="stat"><h3>50+</h3><p>Events Per Year</p></div>
+          <div class="stat"><h3>15k</h3><p>Annual Visitors</p></div>
         </div>
-        <div class="event-item">
-          <div class="event-date"><strong>24</strong><br>MAY</div>
-          <div><h3>Sensory Play Workshop</h3><p>An afternoon dedicated to inclusive play for all abilities.</p></div>
+      </div></div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="about-section" id="about">
+      <div class="container"><div class="about-grid">
+        <div class="about-images fade-up">
+          <img class="about-img-main" src="https://images.unsplash.com/photo-1560807707-8cc77767d783?auto=format&fit=crop&w=800&q=75" alt="Families enjoying the community park playground" width="800" height="480" loading="lazy" decoding="async" />
+          <img class="about-img-float" src="https://images.unsplash.com/photo-1577223625816-7546f13df25d?auto=format&fit=crop&w=400&q=75" alt="Youth sports team celebrating together" width="400" height="400" loading="lazy" decoding="async" />
+        </div>
+        <div class="about-text fade-up">
+          <span class="section-label">Our Mission</span>
+          <h2>A Place for Everyone to Thrive</h2>
+          <p>Community Fields is a 501(c)(3) non-profit organization dedicated to providing accessible sports programs, safe play spaces, and community gathering areas for families of all backgrounds.</p>
+          <p>Since 2010, we've been the heart of our community — hosting youth sports leagues, family events, and creating memories that last a lifetime. Every dollar donated goes directly back into our fields, playground, and programs.</p>
+          <div class="about-features">
+            <div class="about-feature"><div class="about-feature-icon">🏟️</div><span>Multi-Sport Fields</span></div>
+            <div class="about-feature"><div class="about-feature-icon">🛝</div><span>Modern Playground</span></div>
+            <div class="about-feature"><div class="about-feature-icon">🎪</div><span>Event Venue</span></div>
+            <div class="about-feature"><div class="about-feature-icon">❤️</div><span>100% Non-Profit</span></div>
+          </div>
+        </div>
+      </div></div>
+    </section>
+
+    <!-- CALENDAR / EVENTS -->
+    <section class="calendar-section" id="events">
+      <div class="container">
+        <div class="section-header fade-up"><span class="section-label">Upcoming Events</span><h2>What's Happening at the Fields</h2><p>Circuses, concerts, car shows, games, and more — synced live from our calendar.</p></div>
+        <div class="calendar-wrapper fade-up">
+          <div class="calendar-tabs"><button class="cal-tab active" data-mode="MONTH">Month</button><button class="cal-tab" data-mode="WEEK">Week</button><button class="cal-tab" data-mode="AGENDA">Agenda</button></div>
+          <iframe id="googleCalendar" class="calendar-frame" src="https://calendar.google.com/calendar/embed?src=d5427ec5e75d0017036b8b402c1e06c95413fe43d33230fd16a13027effc56b3@group.calendar.google.com&ctz=America%2FNew_York&mode=MONTH&showTitle=0&showPrint=0&showCalendars=0&showTz=0&color=%2364748b" frameborder="0" scrolling="no" loading="lazy" title="Events Calendar"></iframe>
+          <div class="calendar-note"><span>📅</span><span>Updates <strong>live</strong> — add events in Google Calendar and they appear here automatically.</span></div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- CONTACT & FOOTER -->
+    <!-- RENTALS -->
+    <section class="rentals-section" id="rentals">
+      <div class="container">
+        <div class="section-header fade-up"><span class="section-label">Venue Rentals</span><h2>Host Your Next Event Here</h2><p>From circuses and concerts to car shows and private parties — our spaces are ready for your event.</p></div>
+        <div class="rentals-grid fade-up">
+
+          <!-- Field Rental -->
+          <div class="rental-card">
+            <div class="rental-card-img"><img src="https://images.unsplash.com/photo-1521731978332-9e9e714bdd20?auto=format&fit=crop&w=700&q=75" alt="Large open field perfect for events" width="700" height="400" loading="lazy" decoding="async" /></div>
+            <div class="rental-card-body">
+              <h3>🏟️ Field Rental</h3>
+              <p>Our expansive open field is perfect for large-scale events including circuses, concerts, car shows, festivals, and corporate events. Full utility hookups available.</p>
+              <div class="rental-features">
+                <div class="rental-feature"><span class="rental-feature-icon">📐</span> 5+ acres of flat, maintained grass</div>
+                <div class="rental-feature"><span class="rental-feature-icon">🔌</span> Electrical hookups & water access</div>
+                <div class="rental-feature"><span class="rental-feature-icon">🅿️</span> Parking for 200+ vehicles</div>
+                <div class="rental-feature"><span class="rental-feature-icon">🚻</span> Restroom facilities on-site</div>
+                <div class="rental-feature"><span class="rental-feature-icon">🎪</span> Perfect for circuses, concerts, car shows</div>
+              </div>
+              <div class="rental-pricing"><span class="rental-price">$500</span><span class="rental-period">/ day — Negotiable for multi-day events</span></div>
+              <a href="#contact" class="rental-book-btn">Inquire About Field Rental →</a>
+            </div>
+          </div>
+
+          <!-- Pavilion Rental -->
+          <div class="rental-card">
+            <div class="rental-card-img"><img src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?auto=format&fit=crop&w=700&q=75" alt="Covered pavilion with picnic tables for parties" width="700" height="400" loading="lazy" decoding="async" /></div>
+            <div class="rental-card-body">
+              <h3>🏛️ Pavilion Rental</h3>
+              <p>Our covered pavilion is the perfect spot for birthday parties, family reunions, baby showers, team celebrations, and small gatherings. Rain or shine!</p>
+              <div class="rental-features">
+                <div class="rental-feature"><span class="rental-feature-icon">👥</span> Seats up to 75 guests comfortably</div>
+                <div class="rental-feature"><span class="rental-feature-icon">🏗️</span> Covered structure — weather protected</div>
+                <div class="rental-feature"><span class="rental-feature-icon">🔌</span> Electrical outlets & lighting</div>
+                <div class="rental-feature"><span class="rental-feature-icon">🧹</span> Picnic tables & trash facilities included</div>
+                <div class="rental-feature"><span class="rental-feature-icon">🛝</span> Adjacent to playground for kids</div>
+              </div>
+              <div class="rental-pricing"><span class="rental-price">$150</span><span class="rental-period">/ 4 hours — $250 full day</span></div>
+              <a href="#contact" class="rental-book-btn">Book the Pavilion →</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section class="gallery-section" id="gallery">
+      <div class="container">
+        <div class="section-header fade-up"><span class="section-label">Gallery</span><h2>Moments at Community Fields</h2><p>Sports, events, playground fun, and community memories.</p></div>
+        <div class="gallery-grid fade-up" id="galleryGrid">
+          <div class="gallery-item" data-index="0"><img src="https://images.unsplash.com/photo-1508098682722-e99c43a406b2?auto=format&fit=crop&w=600&q=75" alt="Youth football game under the lights" width="600" height="450" loading="lazy" decoding="async" /><div class="gallery-overlay"><p>Friday night football</p></div></div>
+          <div class="gallery-item" data-index="1"><img src="https://images.unsplash.com/photo-1596394723269-e72825e8ea03?auto=format&fit=crop&w=600&q=75" alt="Children playing on the community playground" width="600" height="450" loading="lazy" decoding="async" /><div class="gallery-overlay"><p>Playground fun</p></div></div>
+          <div class="gallery-item" data-index="2"><img src="https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?auto=format&fit=crop&w=600&q=75" alt="Outdoor concert at the community field" width="600" height="450" loading="lazy" decoding="async" /><div class="gallery-overlay"><p>Summer concert series</p></div></div>
+          <div class="gallery-item" data-index="3"><img src="https://images.unsplash.com/photo-1529768167801-9173d94c2a42?auto=format&fit=crop&w=600&q=75" alt="Youth baseball team celebrating a win" width="600" height="450" loading="lazy" decoding="async" /><div class="gallery-overlay"><p>Baseball championship day</p></div></div>
+          <div class="gallery-item" data-index="4"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85f82e?auto=format&fit=crop&w=600&q=75" alt="Classic cars lined up at a car show event" width="600" height="450" loading="lazy" decoding="async" /><div class="gallery-overlay"><p>Annual car show</p></div></div>
+          <div class="gallery-item" data-index="5"><img src="https://images.unsplash.com/photo-1530549387789-4c1017266635?auto=format&fit=crop&w=600&q=75" alt="Families at a community picnic under the pavilion" width="600" height="450" loading="lazy" decoding="async" /><div class="gallery-overlay"><p>Community picnic day</p></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DONATE -->
+    <section class="donate-section" id="donate">
+      <div class="container">
+        <div class="section-header fade-up"><span class="section-label">Support Us</span><h2>Help Keep Our Fields Green</h2><p>As a non-profit, we rely on donations to maintain our park, fund youth programs, and host community events.</p></div>
+        <div class="donate-layout">
+          <div class="donate-info fade-up">
+            <h3>Your Impact 💚</h3><p>Every dollar goes directly to our park, programs, and community. We're a registered 501(c)(3) — your donation is tax-deductible.</p>
+            <div class="donate-progress"><div class="donate-progress-header"><span class="raised" id="donateRaised">$12,400</span><span class="goal">of $25,000 goal</span></div><div class="progress-track"><div class="progress-fill" id="progressFill" style="width:49.6%"></div></div><p>🎯 2025 Field Improvement Fund</p></div>
+            <div class="donate-impacts">
+              <div class="donate-impact"><div class="donate-impact-icon">⚾</div><div class="donate-impact-text"><h4>$25 — Equipment for One Player</h4><p>Provides a youth athlete with gear for the season</p></div></div>
+              <div class="donate-impact"><div class="donate-impact-icon">🛝</div><div class="donate-impact-text"><h4>$50 — Playground Maintenance</h4><p>Keeps our playground safe and clean for one week</p></div></div>
+              <div class="donate-impact"><div class="donate-impact-icon">🏟️</div><div class="donate-impact-text"><h4>$100 — Field Upkeep</h4><p>Covers mowing, lining, and maintenance for one game</p></div></div>
+              <div class="donate-impact"><div class="donate-impact-icon">🎪</div><div class="donate-impact-text"><h4>$500 — Sponsor an Event</h4><p>Helps fund a free community event for families</p></div></div>
+            </div>
+          </div>
+          <div class="donate-card fade-up">
+            <div class="donate-card-header"><h3>Make a Donation</h3><p>100% tax-deductible. Every dollar counts.</p></div>
+            <div class="donate-card-body">
+              <div class="donate-freq"><button class="donate-freq-btn active" data-freq="once">One-time</button><button class="donate-freq-btn" data-freq="monthly">Monthly <span class="monthly-badge">♥</span></button></div>
+              <div class="donate-amounts" id="donateAmounts">
+                <div class="donate-amount-btn" data-amount="25"><span class="amount">$25</span><span class="desc">Equip a player</span></div>
+                <div class="donate-amount-btn selected" data-amount="50"><span class="amount">$50</span><span class="desc">Playground care</span></div>
+                <div class="donate-amount-btn" data-amount="100"><span class="amount">$100</span><span class="desc">Field upkeep</span></div>
+                <div class="donate-amount-btn" data-amount="250"><span class="amount">$250</span><span class="desc">Season sponsor</span></div>
+                <div class="donate-amount-btn" data-amount="500"><span class="amount">$500</span><span class="desc">Event sponsor</span></div>
+                <div class="donate-amount-btn" data-amount="custom"><span class="amount">✏️</span><span class="desc">Custom</span></div>
+              </div>
+              <div class="donate-custom" id="customAmountWrap" style="display:none"><span class="donate-custom-prefix">$</span><input type="number" id="customAmount" placeholder="Enter amount" min="1" aria-label="Custom amount" /></div>
+              <p class="pay-label">Payment Method</p>
+              <div class="pay-methods" id="payMethods">
+                <div class="pay-btn selected" data-method="paypal"><span class="pay-icon">🅿️</span> PayPal</div>
+                <div class="pay-btn" data-method="stripe"><span class="pay-icon">💳</span> Card</div>
+                <div class="pay-btn" data-method="venmo"><span class="pay-icon">Ⓥ</span> Venmo</div>
+                <div class="pay-btn" data-method="cashapp"><span class="pay-icon">💲</span> Cash App</div>
+              </div>
+              <button class="donate-submit paypal" id="donateSubmit">💚 Donate $50 via PayPal</button>
+              <div class="donate-secure">🔒 Secure & encrypted. Tax-deductible receipt provided.</div>
+              <div class="donate-status" id="donateStatus"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact-section" id="contact">
+      <div class="container">
+        <div class="section-header fade-up"><span class="section-label">Get In Touch</span><h2>We'd Love to Hear From You</h2><p>Questions about rentals, events, or volunteering? Reach out!</p></div>
+        <div class="contact-grid">
+          <div class="contact-info fade-up">
+            <h3>Visit the Park</h3><p>Our gates are always open. Come by and see the fields!</p>
+            <div class="contact-detail"><div class="contact-detail-icon">📍</div><div><h4>Address</h4><p>100 Park Drive<br/>Your Town, NY 10001</p></div></div>
+            <div class="contact-detail"><div class="contact-detail-icon">🕐</div><div><h4>Park Hours</h4><p>Mon–Fri: 8am–8pm<br/>Sat–Sun: 7am–9pm</p></div></div>
+          </div>
+          <form class="contact-form fade-up" id="contactForm" novalidate>
+            <h3>Send a Message</h3><p>We'll get back to you within 24 hours.</p>
+            <div style="position:absolute;left:-9999px;top:-9999px" aria-hidden="true"><label for="website">Website</label><input type="text" id="website" name="website" tabindex="-1" autocomplete="off" /></div>
+            <div class="form-row">
+              <div class="form-group"><label for="firstName">First Name</label><input type="text" id="firstName" name="firstName" placeholder="John" required autocomplete="given-name" /></div>
+              <div class="form-group"><label for="lastName">Last Name</label><input type="text" id="lastName" name="lastName" placeholder="Doe" required autocomplete="family-name" /></div>
+            </div>
+            <div class="form-group"><label for="email">Email</label><input type="email" id="email" name="email" placeholder="john@example.com" required autocomplete="email" /></div>
+            <div class="form-group"><label for="subject">Subject</label><select id="subject" name="subject"><option value="">Select topic...</option><option>Field Rental Inquiry</option><option>Pavilion Rental</option><option>Volunteer</option><option>Sponsorship</option><option>General Question</option></select></div>
+            <div class="form-group"><label for="message">Message</label><textarea id="message" name="message" placeholder="Tell us what you're interested in..." required></textarea></div>
+            <button type="submit" class="form-submit" id="submitBtn"><span id="btnText">Send Message →</span></button>
+            <div class="form-status" id="formStatus" role="alert"></div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
   <footer>
     <div class="container">
       <div class="footer-grid">
-        <div>
-          <h3>Contact Us</h3>
-          <p>123 Park Lane, Community City</p>
-          <p>hello@openfields.org</p>
-          <p>(555) 123-4567</p>
-        </div>
-        <div>
-          <h3>Follow Our Mission</h3>
-          <ul class="social-links">
-            <li><a href="#">Instagram</a></li>
-            <li><a href="#">Facebook</a></li>
-            <li><a href="#">Twitter</a></li>
-          </ul>
-        </div>
+        <div class="footer-brand"><div class="logo">Community <span>Fields</span></div><p>A 501(c)(3) non-profit community park. Providing youth sports, playground access, and event space since 2010.</p></div>
+        <div class="footer-col"><h4>Navigate</h4><ul><li><a href="#home">Home</a></li><li><a href="#about">About</a></li><li><a href="#events">Calendar</a></li><li><a href="#rentals">Rentals</a></li><li><a href="#gallery">Gallery</a></li><li><a href="#donate">Donate</a></li><li><a href="#contact">Contact</a></li></ul></div>
+        <div class="footer-col"><h4>Connect</h4><ul><li><a href="https://instagram.com/YOUR_USERNAME" target="_blank" rel="noopener noreferrer">Instagram</a></li><li><a href="https://facebook.com/YOUR_PAGE_NAME" target="_blank" rel="noopener noreferrer">Facebook</a></li><li><a href="mailto:info@communityfields.org">Email Us</a></li><li><a href="tel:+15559876543">Call Us</a></li></ul></div>
       </div>
-      <div style="text-align:center; border-top:1px solid rgba(255,255,255,0.1); padding-top:20px; font-size:0.8rem;">
-        &copy; 2024 Open Fields Initiative. Play for All.
-      </div>
+      <div class="footer-bottom"><p>&copy; 2025 Community Fields. A 501(c)(3) Non-Profit Organization.</p><p>EIN: XX-XXXXXXX</p></div>
     </div>
   </footer>
 
   <script>
-    // Theme Toggle
-    document.getElementById('themeToggle').addEventListener('click', () => {
-      const html = document.documentElement;
-      html.setAttribute('data-theme', html.getAttribute('data-theme') === 'light' ? 'dark' : 'light');
+    "use strict";
+    const FORMSUBMIT_HASH="YOUR_HASHED_EMAIL_FROM_FORMSUBMIT";
+    const DONATE_CONFIG={paypal_link:"https://www.paypal.com/donate/?hosted_button_id=YOUR_BUTTON_ID",stripe_link:"https://buy.stripe.com/YOUR_STRIPE_LINK",venmo_username:"@YourVenmo",venmo_link:"https://venmo.com/YOUR_USERNAME",venmo_qr:"",cashapp_tag:"$YourCashTag",cashapp_link:"https://cash.app/$YourCashTag",cashapp_qr:"",goal:25000,raised:12400};
+
+    function sanitize(s){if(!s)return"";const d=document.createElement("div");d.textContent=s;return d.innerHTML}
+
+    // Dark mode
+    const h=document.documentElement;h.setAttribute("data-theme",localStorage.getItem("theme")||"light");
+    document.getElementById("themeToggle").addEventListener("click",()=>{const n=h.getAttribute("data-theme")==="light"?"dark":"light";h.setAttribute("data-theme",n);localStorage.setItem("theme",n)});
+
+    // Navbar
+    const nb=document.getElementById("navbar"),mb=document.getElementById("menuToggle"),nl=document.getElementById("navLinks");
+    window.addEventListener("scroll",()=>nb.classList.toggle("scrolled",window.scrollY>50),{passive:true});
+    mb.addEventListener("click",()=>{const o=nl.classList.toggle("active");mb.setAttribute("aria-expanded",o)});
+    nl.querySelectorAll("a").forEach(l=>l.addEventListener("click",()=>{nl.classList.remove("active");mb.setAttribute("aria-expanded","false")}));
+
+    // Scroll animations
+    const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add("visible")}),{threshold:0.1,rootMargin:"0px 0px -40px 0px"});
+    document.querySelectorAll(".fade-up").forEach(el=>obs.observe(el));
+
+    // Scroll to top
+    const st=document.getElementById("scrollTop");
+    window.addEventListener("scroll",()=>st.classList.toggle("visible",window.scrollY>500),{passive:true});
+    st.addEventListener("click",()=>window.scrollTo({top:0,behavior:"smooth"}));
+
+    // Calendar
+    const cf=document.getElementById("googleCalendar");
+    document.querySelectorAll(".cal-tab").forEach(t=>{t.addEventListener("click",()=>{document.querySelectorAll(".cal-tab").forEach(x=>x.classList.remove("active"));t.classList.add("active");cf.src=cf.src.replace(/mode=\w+/,`mode=${t.dataset.mode}`)})});
+
+    // Gallery lightbox
+    const lb=document.getElementById("lightbox"),li=document.getElementById("lbImg"),lc=document.getElementById("lbCaption"),gi=document.querySelectorAll(".gallery-item");let ci=0;
+    gi.forEach(item=>item.addEventListener("click",()=>{ci=+item.dataset.index;openLB(ci)}));
+    function openLB(i){const item=gi[i];if(!item)return;li.src=item.querySelector("img").src;li.alt=sanitize(item.querySelector("img").alt);const cap=item.querySelector(".gallery-overlay p");lc.textContent=cap?cap.textContent:"";lb.classList.add("active");document.body.style.overflow="hidden"}
+    function closeLB(){lb.classList.remove("active");document.body.style.overflow=""}
+    document.getElementById("lbClose").addEventListener("click",closeLB);
+    lb.addEventListener("click",e=>{if(e.target===lb)closeLB()});
+    document.getElementById("lbPrev").addEventListener("click",e=>{e.stopPropagation();ci=(ci-1+gi.length)%gi.length;openLB(ci)});
+    document.getElementById("lbNext").addEventListener("click",e=>{e.stopPropagation();ci=(ci+1)%gi.length;openLB(ci)});
+    document.addEventListener("keydown",e=>{if(!lb.classList.contains("active"))return;if(e.key==="Escape")closeLB();if(e.key==="ArrowLeft")document.getElementById("lbPrev").click();if(e.key==="ArrowRight")document.getElementById("lbNext").click()});
+
+    // Donations
+    let da=50,df="once",dm="paypal";
+    const pct=Math.min((DONATE_CONFIG.raised/DONATE_CONFIG.goal)*100,100);
+    document.getElementById("progressFill").style.width=pct+"%";
+    document.getElementById("donateRaised").textContent="$"+DONATE_CONFIG.raised.toLocaleString();
+
+    document.querySelectorAll(".donate-freq-btn").forEach(b=>{b.addEventListener("click",()=>{document.querySelectorAll(".donate-freq-btn").forEach(x=>x.classList.remove("active"));b.classList.add("active");df=b.dataset.freq;uDB()})});
+    document.querySelectorAll(".donate-amount-btn").forEach(b=>{b.addEventListener("click",()=>{document.querySelectorAll(".donate-amount-btn").forEach(x=>x.classList.remove("selected"));b.classList.add("selected");const a=b.dataset.amount,w=document.getElementById("customAmountWrap");if(a==="custom"){w.style.display="flex";document.getElementById("customAmount").focus();da=parseInt(document.getElementById("customAmount").value)||0}else{w.style.display="none";da=parseInt(a)}uDB()})});
+    document.getElementById("customAmount").addEventListener("input",e=>{da=parseInt(e.target.value)||0;uDB()});
+    document.querySelectorAll(".pay-btn").forEach(b=>{b.addEventListener("click",()=>{document.querySelectorAll(".pay-btn").forEach(x=>x.classList.remove("selected"));b.classList.add("selected");dm=b.dataset.method;uDB()})});
+
+    function uDB(){const b=document.getElementById("donateSubmit"),a=da>0?`$${da}`:"",f=df==="monthly"?"/month":"",n={paypal:"PayPal",stripe:"Card",venmo:"Venmo",cashapp:"Cash App"};b.textContent=`💚 Donate ${a}${f} via ${n[dm]}`;b.className="donate-submit "+dm}
+
+    document.getElementById("donateSubmit").addEventListener("click",()=>{
+      if(da<1){sDS("Please select an amount.","error");return}
+      switch(dm){
+        case"paypal":let p=DONATE_CONFIG.paypal_link;if(p.includes("paypal.me"))p+=`/${da}`;window.open(p,"_blank","noopener");sDS("✅ Redirecting to PayPal...","success");break;
+        case"stripe":window.open(DONATE_CONFIG.stripe_link,"_blank","noopener");sDS("✅ Redirecting to payment...","success");break;
+        case"venmo":oQR("Pay with Venmo",`Send $${da} to ${DONATE_CONFIG.venmo_username}`,DONATE_CONFIG.venmo_qr,DONATE_CONFIG.venmo_username,DONATE_CONFIG.venmo_link);break;
+        case"cashapp":oQR("Pay with Cash App",`Send $${da} to ${DONATE_CONFIG.cashapp_tag}`,DONATE_CONFIG.cashapp_qr,DONATE_CONFIG.cashapp_tag,DONATE_CONFIG.cashapp_link);break;
+      }
     });
 
-    // Fade-in Observer
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
-    }, { threshold: 0.1 });
-    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+    function sDS(m,t){const el=document.getElementById("donateStatus");el.textContent=sanitize(m);el.className="donate-status "+t;setTimeout(()=>{el.className="donate-status"},8000)}
+
+    const qm=document.getElementById("qrModal");
+    function oQR(title,desc,qr,user,link){document.getElementById("qrTitle").textContent=sanitize(title);document.getElementById("qrDesc").textContent=sanitize(desc);const q=document.getElementById("qrImage");if(qr){const i=document.createElement("img");i.src=qr;i.alt="QR";i.style.cssText="width:100%;height:100%;object-fit:contain;border-radius:8px";q.innerHTML="";q.appendChild(i)}else q.textContent="Add QR in config";const c=document.getElementById("qrCopyBtn");c.textContent=`📋 Copy: ${sanitize(user)}`;c.onclick=()=>{navigator.clipboard.writeText(user).then(()=>{c.textContent="✅ Copied!";setTimeout(()=>{c.textContent=`📋 Copy: ${sanitize(user)}`},2000)})};if(link)window.open(link,"_blank","noopener");qm.classList.add("active")}
+    document.getElementById("qrClose").addEventListener("click",()=>qm.classList.remove("active"));
+    qm.addEventListener("click",e=>{if(e.target===qm)qm.classList.remove("active")});
+
+    // Contact form
+    const form=document.getElementById("contactForm"),sbtn=document.getElementById("submitBtn"),btxt=document.getElementById("btnText"),fst=document.getElementById("formStatus");
+    form.addEventListener("submit",async e=>{
+      e.preventDefault();
+      if(document.getElementById("website").value){sFS("✅ Message sent!","success");form.reset();return}
+      const fn=sanitize(document.getElementById("firstName").value.trim()),ln=sanitize(document.getElementById("lastName").value.trim()),em=document.getElementById("email").value.trim(),su=sanitize(document.getElementById("subject").value),ms=sanitize(document.getElementById("message").value.trim());
+      if(!fn||!ln||!em||!ms){sFS("Please fill in all required fields.","error");return}
+      if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em)){sFS("Please enter a valid email.","error");return}
+      sbtn.disabled=true;btxt.textContent="Sending...";sFS("📤 Sending...","sending");
+      try{const r=await fetch(`https://formsubmit.co/ajax/${FORMSUBMIT_HASH}`,{method:"POST",headers:{"Content-Type":"application/json",Accept:"application/json"},body:JSON.stringify({name:`${fn} ${ln}`,email:em,subject:su||"General",message:ms,_subject:`Community Fields: ${fn} — ${su||"Website Message"}`,_template:"table"})});const d=await r.json();if(d.success==="true"||d.success===true){sFS("✅ Message sent! We'll reply within 24 hours.","success");form.reset()}else throw new Error("Failed")}catch(err){console.error(err);sFS("❌ Error. Email info@communityfields.org directly.","error")}
+      sbtn.disabled=false;btxt.textContent="Send Message →"
+    });
+    function sFS(m,t){fst.textContent=m;fst.className="form-status "+t}
   </script>
 </body>
 </html>
