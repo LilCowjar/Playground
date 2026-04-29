@@ -37,7 +37,7 @@
     "name": "Community Fields",
     "description": "Non-profit community park featuring a playground, youth sports programs, and event venue for circuses, concerts, car shows, and private parties.",
     "url": "https://communityfields.org",
-    "image": "https://scontent-lga3-2.xx.fbcdn.net/v/t39.30808-6/478542767_2645835735606379_7750743411236585110_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=7b2446&_nc_ohc=olDLamXXeoUQ7kNvwFBXM-f&_nc_oc=AdqpnVFOEyO4ENXKuYAVwoa5FUO8_RsmsebSPdbHsqzY1aN_OCGJx7A8_mD02KEwenk&_nc_zt=23&_nc_ht=scontent-lga3-2.xx&_nc_gid=R2ojBTA3ajyalAR8oPGvnA&_nc_ss=7b289&oh=00_Af17xH-hGyfTU2v08RvqS1cX4u3bFNuMPI7szV4RE3PAgQ&oe=69F5D31D",
+    "image": "https://images.unsplash.com/photo-1560807707-8cc77767d783?auto=format&fit=crop&w=1200&q=80",
     "telephone": "(555) 987-6543",
     "email": "info@communityfields.org",
     "address": {
@@ -77,7 +77,7 @@
              font-src https://fonts.gstatic.com;
              img-src 'self' data: https://images.unsplash.com https://*.unsplash.com blob:;
              frame-src https://calendar.google.com https://www.facebook.com https://formsubmit.co;
-             connect-src https://formsubmit.co;" />
+             connect-src https://formsubmit.co https://www.googleapis.com;" />
 
   <!-- Performance -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -192,15 +192,57 @@
     .about-feature-icon{width:40px;height:40px;background:var(--cream-medium);border-radius:10px;display:grid;place-items:center;font-size:1.2rem;flex-shrink:0}
     .about-feature span{font-size:0.85rem;font-weight:600;color:var(--green)}
 
-    /* CALENDAR */
-    .calendar-section{background:var(--cream);transition:background 0.4s}
-    .calendar-wrapper{background:var(--card-bg);padding:24px;border-radius:var(--radius);box-shadow:var(--shadow-md);overflow:hidden}
-    .calendar-tabs{display:flex;gap:10px;margin-bottom:20px;flex-wrap:wrap}
-    .cal-tab{padding:10px 22px;border-radius:999px;border:2px solid var(--input-border);background:transparent;color:var(--text-light);font-family:"Inter",sans-serif;font-size:0.85rem;font-weight:600;cursor:pointer;transition:0.3s}
-    .cal-tab:hover,.cal-tab.active{background:var(--accent);color:#fff;border-color:var(--accent)}
-    .calendar-frame{width:100%;min-height:600px;border:none;border-radius:var(--radius-sm)}
-    .calendar-note{margin-top:16px;padding:14px 20px;background:var(--cream-dark);border-radius:var(--radius-sm);display:flex;align-items:center;gap:10px;font-size:0.85rem;color:var(--text-light)}
-    .calendar-note strong{color:var(--accent)}
+    /* EVENTS */
+    .events-section{background:var(--cream);transition:background 0.4s}
+    .events-list{display:flex;flex-direction:column;gap:0}
+    .event-row{display:flex;align-items:center;gap:24px;padding:24px 28px;border-bottom:1px solid var(--input-border);transition:background 0.3s;border-radius:0}
+    .event-row:first-child{border-radius:var(--radius) var(--radius) 0 0}
+    .event-row:last-child{border-radius:0 0 var(--radius) var(--radius);border-bottom:none}
+    .event-row:only-child{border-radius:var(--radius)}
+    .event-row:hover{background:var(--cream-medium)}
+    .events-wrapper{background:var(--card-bg);border-radius:var(--radius);box-shadow:var(--shadow-md);overflow:hidden;transition:background 0.4s}
+    .event-date-block{flex-shrink:0;width:72px;height:72px;background:var(--green-dark);border-radius:var(--radius-sm);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;transition:background 0.3s}
+    .event-row:hover .event-date-block{background:var(--accent)}
+    .event-date-month{font-family:"Inter",sans-serif;font-size:0.65rem;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--accent-light);line-height:1}
+    .event-row:hover .event-date-month{color:#fff}
+    .event-date-day{font-family:"Playfair Display",serif;font-size:1.7rem;font-weight:700;color:#fff;line-height:1.1;margin-top:2px}
+    [data-theme="dark"] .event-date-block{background:var(--cream-medium)}
+    [data-theme="dark"] .event-date-month{color:var(--accent-light)}
+    [data-theme="dark"] .event-date-day{color:var(--accent-light)}
+    [data-theme="dark"] .event-row:hover .event-date-block{background:var(--accent)}
+    [data-theme="dark"] .event-row:hover .event-date-month,[data-theme="dark"] .event-row:hover .event-date-day{color:#fff}
+    .event-info{flex:1;min-width:0}
+    .event-info h3{font-family:"Inter",sans-serif;font-size:1.05rem;font-weight:700;color:var(--green-dark);margin-bottom:4px;line-height:1.3}
+    .event-meta{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+    .event-meta-item{display:flex;align-items:center;gap:5px;font-size:0.82rem;color:var(--text-light);font-weight:500}
+    .event-meta-icon{font-size:0.9rem;flex-shrink:0}
+    .event-tag{display:inline-block;padding:3px 10px;border-radius:999px;font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.5px}
+    .event-tag.concert{background:#dbeafe;color:#1e40af}
+    .event-tag.sports{background:#dcfce7;color:#166534}
+    .event-tag.festival{background:#fef3c7;color:#92400e}
+    .event-tag.community{background:#f3e8ff;color:#6b21a8}
+    .event-tag.circus{background:#ffe4e6;color:#9f1239}
+    .event-tag.carshow{background:#e0e7ff;color:#3730a3}
+    .event-tag.private{background:var(--cream-dark);color:var(--text-light)}
+    [data-theme="dark"] .event-tag.concert{background:rgba(59,130,246,0.2);color:#93c5fd}
+    [data-theme="dark"] .event-tag.sports{background:rgba(34,197,94,0.2);color:#86efac}
+    [data-theme="dark"] .event-tag.festival{background:rgba(245,158,11,0.2);color:#fcd34d}
+    [data-theme="dark"] .event-tag.community{background:rgba(168,85,247,0.2);color:#d8b4fe}
+    [data-theme="dark"] .event-tag.circus{background:rgba(244,63,94,0.2);color:#fda4af}
+    [data-theme="dark"] .event-tag.carshow{background:rgba(99,102,241,0.2);color:#a5b4fc}
+    [data-theme="dark"] .event-tag.private{background:var(--cream-medium);color:var(--text-light)}
+    .event-action{flex-shrink:0}
+    .event-btn{display:inline-flex;align-items:center;gap:6px;padding:10px 22px;border-radius:999px;font-family:"Inter",sans-serif;font-size:0.82rem;font-weight:600;border:2px solid var(--input-border);background:transparent;color:var(--green);cursor:pointer;transition:0.3s;white-space:nowrap}
+    .event-btn:hover{background:var(--accent);color:#fff;border-color:var(--accent);transform:translateY(-1px)}
+    .events-empty{text-align:center;padding:60px 28px;color:var(--text-light)}
+    .events-empty-icon{font-size:3rem;margin-bottom:16px;opacity:0.5}
+    .events-empty h3{font-size:1.3rem;color:var(--green-dark);margin-bottom:8px}
+    .events-empty p{font-size:0.9rem}
+    .events-footer{display:flex;justify-content:center;padding:24px;border-top:1px solid var(--input-border)}
+    .events-footer-link{display:inline-flex;align-items:center;gap:8px;padding:12px 28px;border-radius:999px;font-weight:600;font-size:0.88rem;color:var(--accent);border:2px solid var(--input-border);transition:0.3s}
+    .events-footer-link:hover{background:var(--accent);color:#fff;border-color:var(--accent)}
+    .events-count{text-align:center;margin-bottom:24px;font-size:0.85rem;color:var(--text-light);font-weight:500}
+    .events-count strong{color:var(--green-dark)}
 
     /* RENTALS */
     .rentals-section{background:var(--cream-dark);transition:background 0.4s}
@@ -244,8 +286,41 @@
     .lightbox-nav:hover{background:rgba(255,255,255,0.25)}
     .lightbox-prev{left:20px}.lightbox-next{right:20px}
 
+    /* SOCIAL */
+    .social-section{background:var(--cream-dark);transition:background 0.4s}
+    .social-stats{display:flex;justify-content:center;gap:40px;margin-bottom:50px;flex-wrap:wrap}
+    .social-stat{text-align:center;padding:24px 36px;background:var(--card-bg);border-radius:var(--radius);box-shadow:var(--shadow-sm);transition:0.3s;min-width:180px}
+    .social-stat:hover{transform:translateY(-4px);box-shadow:var(--shadow-md)}
+    .social-stat-icon{font-size:2rem;margin-bottom:8px}
+    .social-stat h3{font-size:1.8rem;color:var(--green-dark);margin-bottom:4px}
+    .social-stat p{font-size:0.8rem;color:var(--text-light);font-weight:500;text-transform:uppercase;letter-spacing:1px}
+    .social-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+    .social-card{background:var(--card-bg);border-radius:var(--radius);box-shadow:var(--shadow-md);overflow:hidden}
+    .social-card-header{display:flex;align-items:center;gap:14px;padding:24px 28px;border-bottom:1px solid var(--input-border)}
+    .social-card-icon{width:48px;height:48px;border-radius:14px;display:grid;place-items:center;font-size:1.4rem;flex-shrink:0}
+    .social-card-icon.fb{background:#1877f2;color:#fff}
+    .social-card-icon.ig{background:linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);color:#fff}
+    .social-card-header-text h3{font-size:1.1rem;color:var(--green-dark);font-family:"Inter",sans-serif;font-weight:700}
+    .social-card-header-text p{font-size:0.8rem;color:var(--text-light)}
+    .social-card-body{padding:24px 28px}
+    .fb-embed{width:100%;min-height:400px;border:none;border-radius:var(--radius-sm);background:var(--cream)}
+    .ig-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+    .ig-item{aspect-ratio:1;border-radius:10px;overflow:hidden;cursor:pointer;position:relative;transition:0.3s}
+    .ig-item:hover{transform:scale(1.03)}
+    .ig-item img{width:100%;height:100%;object-fit:cover;transition:0.4s}
+    .ig-item:hover img{transform:scale(1.1)}
+    .ig-item-overlay{position:absolute;inset:0;background:rgba(0,0,0,0.3);display:grid;place-items:center;opacity:0;transition:0.3s}
+    .ig-item:hover .ig-item-overlay{opacity:1}
+    .ig-item-overlay span{color:#fff;font-size:1.4rem}
+    .social-card-footer{padding:20px 28px;border-top:1px solid var(--input-border);display:flex;justify-content:center}
+    .social-follow-btn{display:inline-flex;align-items:center;gap:8px;padding:12px 28px;border-radius:999px;font-weight:600;font-size:0.9rem;transition:0.3s;border:none;cursor:pointer;font-family:"Inter",sans-serif}
+    .social-follow-btn.fb-btn{background:#1877f2;color:#fff}
+    .social-follow-btn.fb-btn:hover{background:#1565c0;transform:translateY(-2px)}
+    .social-follow-btn.ig-btn{background:linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);color:#fff}
+    .social-follow-btn.ig-btn:hover{transform:translateY(-2px);filter:brightness(1.1)}
+
     /* DONATION */
-    .donate-section{background:var(--cream-dark);position:relative;overflow:hidden;transition:background 0.4s}
+    .donate-section{background:var(--cream);position:relative;overflow:hidden;transition:background 0.4s}
     .donate-layout{display:grid;grid-template-columns:1fr 1.3fr;gap:50px;align-items:start;position:relative;z-index:2}
     .donate-info{padding:40px;background:#1e293b;border-radius:var(--radius);color:#f8fafc;box-shadow:var(--shadow-lg);position:sticky;top:100px}
     .donate-info h3{font-size:1.8rem;margin-bottom:10px;color:#f8fafc}
@@ -312,7 +387,7 @@
     .qr-copy-btn{padding:10px 20px;background:var(--cream-dark);color:var(--green);border:2px solid var(--input-border);border-radius:999px;font-family:"Inter",sans-serif;font-weight:600;font-size:0.82rem;cursor:pointer}
 
     /* CONTACT */
-    .contact-section{background:var(--cream);transition:background 0.4s}
+    .contact-section{background:var(--cream-dark);transition:background 0.4s}
     .contact-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:50px;align-items:start}
     .contact-info{padding:40px;background:#1e293b;border-radius:var(--radius);color:#f8fafc;box-shadow:var(--shadow-lg)}
     .contact-info h3{font-size:1.8rem;margin-bottom:14px;color:#f8fafc}
@@ -353,8 +428,8 @@
     .footer-col a:hover{color:var(--accent-light)}
     .footer-bottom{border-top:1px solid rgba(248,250,252,0.1);padding-top:24px;display:flex;justify-content:space-between;align-items:center;font-size:0.82rem;color:rgba(248,250,252,0.4)}
 
-    @media(max-width:900px){.hero h1{font-size:2.8rem}.about-grid,.donate-layout,.rentals-grid{grid-template-columns:1fr}.about-img-float{display:none}.about-img-main{height:350px}.contact-grid{grid-template-columns:1fr}.footer-grid{grid-template-columns:1fr 1fr}.calendar-frame{min-height:500px}.donate-info{position:static}}
-    @media(max-width:640px){.nav-links{display:none;position:absolute;top:100%;left:0;width:100%;background:var(--nav-bg);backdrop-filter:blur(18px);flex-direction:column;padding:20px;gap:16px;box-shadow:var(--shadow-md)}.nav-links.active{display:flex}.menu-toggle{display:flex}.hero h1{font-size:2.2rem}.hero-btns,.hero-stats{flex-direction:column}.hero-stats{gap:16px}.form-row{grid-template-columns:1fr}.about-features{grid-template-columns:1fr}.section-header h2{font-size:2rem}.footer-grid{grid-template-columns:1fr}.footer-bottom{flex-direction:column;gap:10px;text-align:center}.calendar-frame{min-height:400px}.gallery-grid{grid-template-columns:1fr 1fr}.donate-amounts{grid-template-columns:repeat(2,1fr)}.pay-methods{grid-template-columns:1fr}}
+    @media(max-width:900px){.hero h1{font-size:2.8rem}.about-grid,.donate-layout,.rentals-grid{grid-template-columns:1fr}.about-img-float{display:none}.about-img-main{height:350px}.contact-grid,.social-grid{grid-template-columns:1fr}.footer-grid{grid-template-columns:1fr 1fr}.donate-info{position:static}}
+    @media(max-width:640px){.nav-links{display:none;position:absolute;top:100%;left:0;width:100%;background:var(--nav-bg);backdrop-filter:blur(18px);flex-direction:column;padding:20px;gap:16px;box-shadow:var(--shadow-md)}.nav-links.active{display:flex}.menu-toggle{display:flex}.hero h1{font-size:2.2rem}.hero-btns,.hero-stats{flex-direction:column}.hero-stats{gap:16px}.form-row{grid-template-columns:1fr}.about-features{grid-template-columns:1fr}.section-header h2{font-size:2rem}.footer-grid{grid-template-columns:1fr}.footer-bottom{flex-direction:column;gap:10px;text-align:center}.gallery-grid{grid-template-columns:1fr 1fr}.ig-grid{grid-template-columns:repeat(2,1fr)}.donate-amounts{grid-template-columns:repeat(2,1fr)}.pay-methods{grid-template-columns:1fr}.social-grid{grid-template-columns:1fr}.event-row{flex-direction:column;align-items:flex-start;gap:14px;padding:20px}.event-action{align-self:stretch}.event-btn{width:100%;justify-content:center}}
   </style>
 </head>
 <body>
@@ -388,9 +463,10 @@
           <ul class="nav-links" id="navLinks" role="menubar">
             <li role="none"><a href="#home" role="menuitem">Home</a></li>
             <li role="none"><a href="#about" role="menuitem">About</a></li>
-            <li role="none"><a href="#events" role="menuitem">Calendar</a></li>
+            <li role="none"><a href="#events" role="menuitem">Events</a></li>
             <li role="none"><a href="#rentals" role="menuitem">Rentals</a></li>
             <li role="none"><a href="#gallery" role="menuitem">Gallery</a></li>
+            <li role="none"><a href="#social" role="menuitem">Social</a></li>
             <li role="none"><a href="#donate" role="menuitem">Donate</a></li>
             <li role="none"><a href="#contact" role="menuitem">Contact</a></li>
             <li role="none"><a href="#rentals" class="nav-cta" role="menuitem">Book Now</a></li>
@@ -441,14 +517,18 @@
       </div></div>
     </section>
 
-    <!-- CALENDAR / EVENTS -->
-    <section class="calendar-section" id="events">
+    <!-- EVENTS -->
+    <section class="events-section" id="events">
       <div class="container">
-        <div class="section-header fade-up"><span class="section-label">Upcoming Events</span><h2>What's Happening at the Fields</h2><p>Circuses, concerts, car shows, games, and more — synced live from our calendar.</p></div>
-        <div class="calendar-wrapper fade-up">
-          <div class="calendar-tabs"><button class="cal-tab active" data-mode="MONTH">Month</button><button class="cal-tab" data-mode="WEEK">Week</button><button class="cal-tab" data-mode="AGENDA">Agenda</button></div>
-          <iframe id="googleCalendar" class="calendar-frame" src="https://calendar.google.com/calendar/embed?src=d5427ec5e75d0017036b8b402c1e06c95413fe43d33230fd16a13027effc56b3@group.calendar.google.com&ctz=America%2FNew_York&mode=MONTH&showTitle=0&showPrint=0&showCalendars=0&showTz=0&color=%2364748b" frameborder="0" scrolling="no" loading="lazy" title="Events Calendar"></iframe>
-          <div class="calendar-note"><span>📅</span><span>Updates <strong>live</strong> — add events in Google Calendar and they appear here automatically.</span></div>
+        <div class="section-header fade-up"><span class="section-label">Upcoming Events</span><h2>What's Happening at the Fields</h2><p>Concerts, car shows, festivals, games, and more — pulled live from our calendar.</p></div>
+        <div class="events-count fade-up" id="eventsCount"></div>
+        <div class="events-wrapper fade-up">
+          <div class="events-list" id="eventsList">
+            <div class="events-empty"><div class="events-empty-icon">⏳</div><h3>Loading Events...</h3><p>Fetching the latest from our calendar.</p></div>
+          </div>
+          <div class="events-footer">
+            <a href="https://calendar.google.com/calendar/u/0?cid=YOUR_CALENDAR_ID" target="_blank" rel="noopener noreferrer" class="events-footer-link">📅 View Full Calendar →</a>
+          </div>
         </div>
       </div>
     </section>
@@ -458,8 +538,6 @@
       <div class="container">
         <div class="section-header fade-up"><span class="section-label">Venue Rentals</span><h2>Host Your Next Event Here</h2><p>From circuses and concerts to car shows and private parties — our spaces are ready for your event.</p></div>
         <div class="rentals-grid fade-up">
-
-          <!-- Field Rental -->
           <div class="rental-card">
             <div class="rental-card-img"><img src="https://images.unsplash.com/photo-1521731978332-9e9e714bdd20?auto=format&fit=crop&w=700&q=75" alt="Large open field perfect for events" width="700" height="400" loading="lazy" decoding="async" /></div>
             <div class="rental-card-body">
@@ -476,8 +554,6 @@
               <a href="#contact" class="rental-book-btn">Inquire About Field Rental →</a>
             </div>
           </div>
-
-          <!-- Pavilion Rental -->
           <div class="rental-card">
             <div class="rental-card-img"><img src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?auto=format&fit=crop&w=700&q=75" alt="Covered pavilion with picnic tables for parties" width="700" height="400" loading="lazy" decoding="async" /></div>
             <div class="rental-card-body">
@@ -494,7 +570,6 @@
               <a href="#contact" class="rental-book-btn">Book the Pavilion →</a>
             </div>
           </div>
-
         </div>
       </div>
     </section>
@@ -510,6 +585,29 @@
           <div class="gallery-item" data-index="3"><img src="https://images.unsplash.com/photo-1529768167801-9173d94c2a42?auto=format&fit=crop&w=600&q=75" alt="Youth baseball team celebrating a win" width="600" height="450" loading="lazy" decoding="async" /><div class="gallery-overlay"><p>Baseball championship day</p></div></div>
           <div class="gallery-item" data-index="4"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85f82e?auto=format&fit=crop&w=600&q=75" alt="Classic cars lined up at a car show event" width="600" height="450" loading="lazy" decoding="async" /><div class="gallery-overlay"><p>Annual car show</p></div></div>
           <div class="gallery-item" data-index="5"><img src="https://images.unsplash.com/photo-1530549387789-4c1017266635?auto=format&fit=crop&w=600&q=75" alt="Families at a community picnic under the pavilion" width="600" height="450" loading="lazy" decoding="async" /><div class="gallery-overlay"><p>Community picnic day</p></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SOCIAL -->
+    <section class="social-section" id="social">
+      <div class="container">
+        <div class="section-header fade-up"><span class="section-label">Follow Us</span><h2>Stay Connected</h2><p>Follow us for event updates, game schedules, and community highlights.</p></div>
+        <div class="social-stats fade-up">
+          <div class="social-stat"><div class="social-stat-icon">📘</div><h3>5.8k</h3><p>Facebook Followers</p></div>
+          <div class="social-stat"><div class="social-stat-icon">📸</div><h3>3.2k</h3><p>Instagram Followers</p></div>
+          <div class="social-stat"><div class="social-stat-icon">🏟️</div><h3>50+</h3><p>Events This Year</p></div>
+        </div>
+        <div class="social-grid fade-up">
+          <div class="social-card"><div class="social-card-header"><div class="social-card-icon fb">f</div><div class="social-card-header-text"><h3>Facebook</h3><p>@CommunityFields</p></div></div><div class="social-card-body"><iframe class="fb-embed" src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FYOUR_PAGE_NAME&tabs=timeline&width=500&height=400&small_header=true&adapt_container_width=true" scrolling="no" frameborder="0" loading="lazy" title="Facebook Page"></iframe></div><div class="social-card-footer"><a href="https://facebook.com/YOUR_PAGE_NAME" target="_blank" rel="noopener noreferrer" class="social-follow-btn fb-btn">📘 Follow on Facebook</a></div></div>
+          <div class="social-card"><div class="social-card-header"><div class="social-card-icon ig">📷</div><div class="social-card-header-text"><h3>Instagram</h3><p>@communityfields</p></div></div><div class="social-card-body"><div class="ig-grid">
+            <div class="ig-item"><img src="https://images.unsplash.com/photo-1508098682722-e99c43a406b2?auto=format&fit=crop&w=300&q=70" alt="Football game" width="300" height="300" loading="lazy" decoding="async" /><div class="ig-item-overlay"><span>❤️</span></div></div>
+            <div class="ig-item"><img src="https://images.unsplash.com/photo-1596394723269-e72825e8ea03?auto=format&fit=crop&w=300&q=70" alt="Playground" width="300" height="300" loading="lazy" decoding="async" /><div class="ig-item-overlay"><span>❤️</span></div></div>
+            <div class="ig-item"><img src="https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?auto=format&fit=crop&w=300&q=70" alt="Concert" width="300" height="300" loading="lazy" decoding="async" /><div class="ig-item-overlay"><span>❤️</span></div></div>
+            <div class="ig-item"><img src="https://images.unsplash.com/photo-1529768167801-9173d94c2a42?auto=format&fit=crop&w=300&q=70" alt="Baseball" width="300" height="300" loading="lazy" decoding="async" /><div class="ig-item-overlay"><span>❤️</span></div></div>
+            <div class="ig-item"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85f82e?auto=format&fit=crop&w=300&q=70" alt="Car show" width="300" height="300" loading="lazy" decoding="async" /><div class="ig-item-overlay"><span>❤️</span></div></div>
+            <div class="ig-item"><img src="https://images.unsplash.com/photo-1530549387789-4c1017266635?auto=format&fit=crop&w=300&q=70" alt="Picnic" width="300" height="300" loading="lazy" decoding="async" /><div class="ig-item-overlay"><span>❤️</span></div></div>
+          </div></div><div class="social-card-footer"><a href="https://instagram.com/YOUR_USERNAME" target="_blank" rel="noopener noreferrer" class="social-follow-btn ig-btn">📸 Follow on Instagram</a></div></div>
         </div>
       </div>
     </section>
@@ -590,7 +688,7 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand"><div class="logo">Community <span>Fields</span></div><p>A 501(c)(3) non-profit community park. Providing youth sports, playground access, and event space since 2010.</p></div>
-        <div class="footer-col"><h4>Navigate</h4><ul><li><a href="#home">Home</a></li><li><a href="#about">About</a></li><li><a href="#events">Calendar</a></li><li><a href="#rentals">Rentals</a></li><li><a href="#gallery">Gallery</a></li><li><a href="#donate">Donate</a></li><li><a href="#contact">Contact</a></li></ul></div>
+        <div class="footer-col"><h4>Navigate</h4><ul><li><a href="#home">Home</a></li><li><a href="#about">About</a></li><li><a href="#events">Events</a></li><li><a href="#rentals">Rentals</a></li><li><a href="#gallery">Gallery</a></li><li><a href="#social">Social</a></li><li><a href="#donate">Donate</a></li><li><a href="#contact">Contact</a></li></ul></div>
         <div class="footer-col"><h4>Connect</h4><ul><li><a href="https://instagram.com/YOUR_USERNAME" target="_blank" rel="noopener noreferrer">Instagram</a></li><li><a href="https://facebook.com/YOUR_PAGE_NAME" target="_blank" rel="noopener noreferrer">Facebook</a></li><li><a href="mailto:info@communityfields.org">Email Us</a></li><li><a href="tel:+15559876543">Call Us</a></li></ul></div>
       </div>
       <div class="footer-bottom"><p>&copy; 2025 Community Fields. A 501(c)(3) Non-Profit Organization.</p><p>EIN: XX-XXXXXXX</p></div>
@@ -599,35 +697,132 @@
 
   <script>
     "use strict";
-    const FORMSUBMIT_HASH="YOUR_HASHED_EMAIL_FROM_FORMSUBMIT";
-    const DONATE_CONFIG={paypal_link:"https://www.paypal.com/donate/?hosted_button_id=YOUR_BUTTON_ID",stripe_link:"https://buy.stripe.com/YOUR_STRIPE_LINK",venmo_username:"@YourVenmo",venmo_link:"https://venmo.com/YOUR_USERNAME",venmo_qr:"",cashapp_tag:"$YourCashTag",cashapp_link:"https://cash.app/$YourCashTag",cashapp_qr:"",goal:25000,raised:12400};
 
+    // =====================================================
+    // ⚙️ CONFIGURATION — Paste your real values here
+    // =====================================================
+    const FORMSUBMIT_HASH = "YOUR_HASHED_EMAIL_FROM_FORMSUBMIT";
+    const GOOGLE_CALENDAR_ID = "d5427ec5e75d0017036b8b402c1e06c95413fe43d33230fd16a13027effc56b3@group.calendar.google.com";      // e.g. "abc123@group.calendar.google.com"
+    const GOOGLE_API_KEY = "AIzaSyCz0-qWqQV1RrdVGJSuqY5eNvykxSL2EnI";        // e.g. "AIzaSyD-abc123..."
+
+    const DONATE_CONFIG = {
+      paypal_link: "https://www.paypal.com/donate/?hosted_button_id=YOUR_BUTTON_ID",
+      stripe_link: "https://buy.stripe.com/YOUR_STRIPE_LINK",
+      venmo_username: "@YourVenmo",
+      venmo_link: "https://venmo.com/YOUR_USERNAME",
+      venmo_qr: "",
+      cashapp_tag: "$YourCashTag",
+      cashapp_link: "https://cash.app/$YourCashTag",
+      cashapp_qr: "",
+      goal: 25000,
+      raised: 12400
+    };
+
+    // Fallback events shown if Google Calendar isn't configured or fails
+    const FALLBACK_EVENTS = [
+      { date:"2025-06-14", title:"Community Picnic & BBQ", time:"11:00 AM – 4:00 PM", location:"Main Pavilion", tag:"community" },
+      { date:"2025-06-21", title:"Summer Concert Series", time:"6:00 PM – 10:00 PM", location:"Main Field", tag:"concert" },
+      { date:"2025-07-04", title:"4th of July Fireworks & Festival", time:"3:00 PM – 10:00 PM", location:"Entire Park", tag:"festival" },
+      { date:"2025-07-12", title:"Classic Car Show", time:"9:00 AM – 3:00 PM", location:"Parking Field", tag:"carshow" },
+      { date:"2025-07-26", title:"Youth Football Season Kickoff", time:"8:00 AM – 12:00 PM", location:"Sports Fields", tag:"sports" },
+      { date:"2025-08-02", title:"Circus Under the Big Top", time:"2:00 PM & 7:00 PM", location:"Main Field", tag:"circus" },
+      { date:"2025-08-23", title:"Summer Concert Finale", time:"5:00 PM – 11:00 PM", location:"Main Field", tag:"concert" },
+      { date:"2025-09-13", title:"Fall Festival & Craft Fair", time:"10:00 AM – 5:00 PM", location:"Entire Park", tag:"festival" }
+    ];
+
+    // =====================================================
+    // TAG DETECTION
+    // =====================================================
+    const TAG_KEYWORDS = {
+      concert:["concert","music","band","live music","jazz","rock"],
+      sports:["football","baseball","lacrosse","soccer","basketball","sports","game","tournament","championship","kickoff"],
+      festival:["festival","fair","fireworks","4th of july","carnival","celebration"],
+      community:["picnic","bbq","community","family","potluck","volunteer","clean-up","back-to-school","fun day"],
+      circus:["circus","big top","acrobat"],
+      carshow:["car show","car meet","swap meet","auto","classic car","cruise"],
+      private:["private","reserved","rental","wedding","party"]
+    };
+    function detectTag(title){const t=title.toLowerCase();for(const[tag,kw]of Object.entries(TAG_KEYWORDS)){if(kw.some(k=>t.includes(k)))return tag}return"community"}
+
+    // =====================================================
+    // UTILITIES
+    // =====================================================
     function sanitize(s){if(!s)return"";const d=document.createElement("div");d.textContent=s;return d.innerHTML}
+    const MONTHS=["JAN","FEB","MAR","APR","MAY","JUN","JUL","AUG","SEP","OCT","NOV","DEC"];
+    const DAYS=["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+    function formatTime12(ds){const d=new Date(ds);if(isNaN(d))return"";let h=d.getHours(),m=d.getMinutes();const ap=h>=12?"PM":"AM";h=h%12||12;return`${h}:${m.toString().padStart(2,"0")} ${ap}`}
 
-    // Dark mode
+    // =====================================================
+    // RENDER EVENTS
+    // =====================================================
+    function renderEvents(events){
+      const list=document.getElementById("eventsList"),countEl=document.getElementById("eventsCount");
+      const today=new Date();today.setHours(0,0,0,0);
+      const upcoming=events.filter(e=>new Date(e.date+"T23:59:59")>=today).sort((a,b)=>new Date(a.date)-new Date(b.date));
+      countEl.innerHTML=`<strong>${upcoming.length}</strong> upcoming event${upcoming.length!==1?"s":""}`;
+      if(!upcoming.length){list.innerHTML=`<div class="events-empty"><div class="events-empty-icon">📅</div><h3>No Upcoming Events</h3><p>Check back soon — we're always planning something new!</p></div>`;return}
+      list.innerHTML=upcoming.map(ev=>{
+        const d=new Date(ev.date+"T12:00:00"),month=MONTHS[d.getMonth()],day=d.getDate(),dayName=DAYS[d.getDay()];
+        const tag=ev.tag||"community",cta=ev.cta||"Details",link=ev.link||"#contact";
+        return`<div class="event-row">
+          <div class="event-date-block"><span class="event-date-month">${month}</span><span class="event-date-day">${day}</span></div>
+          <div class="event-info"><h3>${sanitize(ev.title)}</h3><div class="event-meta"><span class="event-meta-item"><span class="event-meta-icon">📆</span>${dayName}</span><span class="event-meta-item"><span class="event-meta-icon">🕐</span>${sanitize(ev.time)}</span>${ev.location?`<span class="event-meta-item"><span class="event-meta-icon">📍</span>${sanitize(ev.location)}</span>`:""}<span class="event-tag ${tag}">${tag}</span></div></div>
+          <div class="event-action"><a href="${sanitize(link)}" class="event-btn">${sanitize(cta)} →</a></div>
+        </div>`}).join("")}
+
+    // =====================================================
+    // GOOGLE CALENDAR API
+    // =====================================================
+    async function fetchGoogleCalendarEvents(){
+      if(!GOOGLE_API_KEY||GOOGLE_API_KEY.includes("YOUR_")||!GOOGLE_CALENDAR_ID||GOOGLE_CALENDAR_ID.includes("YOUR_")){
+        console.log("Google Calendar not configured — using fallback events");return null}
+      try{
+        const now=new Date().toISOString(),max=new Date();max.setMonth(max.getMonth()+6);
+        const url=`https://www.googleapis.com/calendar/v3/calendars/${encodeURIComponent(GOOGLE_CALENDAR_ID)}/events?key=${GOOGLE_API_KEY}&timeMin=${now}&timeMax=${max.toISOString()}&orderBy=startTime&singleEvents=true&maxResults=20`;
+        const res=await fetch(url);if(!res.ok)throw new Error(`API error: ${res.status}`);
+        const data=await res.json();if(!data.items||!data.items.length)return[];
+        return data.items.map(item=>{
+          const start=item.start.dateTime||item.start.date,end=item.end.dateTime||item.end.date,isAllDay=!item.start.dateTime;
+          let timeStr="All Day";if(!isAllDay)timeStr=`${formatTime12(start)} – ${formatTime12(end)}`;
+          return{date:start.split("T")[0],title:item.summary||"Event",time:timeStr,location:item.location||"",tag:detectTag(item.summary||""),cta:"Details",link:item.htmlLink||"#contact"}})
+      }catch(err){console.error("Google Calendar fetch failed:",err);return null}}
+
+    async function initEvents(){
+      const gc=await fetchGoogleCalendarEvents();
+      if(gc!==null){renderEvents(gc);console.log(`✅ Loaded ${gc.length} events from Google Calendar`)}
+      else{renderEvents(FALLBACK_EVENTS);console.log("📋 Using fallback events")}}
+    initEvents();
+
+    // =====================================================
+    // DARK MODE
+    // =====================================================
     const h=document.documentElement;h.setAttribute("data-theme",localStorage.getItem("theme")||"light");
     document.getElementById("themeToggle").addEventListener("click",()=>{const n=h.getAttribute("data-theme")==="light"?"dark":"light";h.setAttribute("data-theme",n);localStorage.setItem("theme",n)});
 
-    // Navbar
+    // =====================================================
+    // NAVBAR
+    // =====================================================
     const nb=document.getElementById("navbar"),mb=document.getElementById("menuToggle"),nl=document.getElementById("navLinks");
     window.addEventListener("scroll",()=>nb.classList.toggle("scrolled",window.scrollY>50),{passive:true});
     mb.addEventListener("click",()=>{const o=nl.classList.toggle("active");mb.setAttribute("aria-expanded",o)});
     nl.querySelectorAll("a").forEach(l=>l.addEventListener("click",()=>{nl.classList.remove("active");mb.setAttribute("aria-expanded","false")}));
 
-    // Scroll animations
+    // =====================================================
+    // SCROLL ANIMATIONS
+    // =====================================================
     const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add("visible")}),{threshold:0.1,rootMargin:"0px 0px -40px 0px"});
     document.querySelectorAll(".fade-up").forEach(el=>obs.observe(el));
 
-    // Scroll to top
+    // =====================================================
+    // SCROLL TO TOP
+    // =====================================================
     const st=document.getElementById("scrollTop");
     window.addEventListener("scroll",()=>st.classList.toggle("visible",window.scrollY>500),{passive:true});
     st.addEventListener("click",()=>window.scrollTo({top:0,behavior:"smooth"}));
 
-    // Calendar
-    const cf=document.getElementById("googleCalendar");
-    document.querySelectorAll(".cal-tab").forEach(t=>{t.addEventListener("click",()=>{document.querySelectorAll(".cal-tab").forEach(x=>x.classList.remove("active"));t.classList.add("active");cf.src=cf.src.replace(/mode=\w+/,`mode=${t.dataset.mode}`)})});
-
-    // Gallery lightbox
+    // =====================================================
+    // GALLERY LIGHTBOX
+    // =====================================================
     const lb=document.getElementById("lightbox"),li=document.getElementById("lbImg"),lc=document.getElementById("lbCaption"),gi=document.querySelectorAll(".gallery-item");let ci=0;
     gi.forEach(item=>item.addEventListener("click",()=>{ci=+item.dataset.index;openLB(ci)}));
     function openLB(i){const item=gi[i];if(!item)return;li.src=item.querySelector("img").src;li.alt=sanitize(item.querySelector("img").alt);const cap=item.querySelector(".gallery-overlay p");lc.textContent=cap?cap.textContent:"";lb.classList.add("active");document.body.style.overflow="hidden"}
@@ -638,37 +833,34 @@
     document.getElementById("lbNext").addEventListener("click",e=>{e.stopPropagation();ci=(ci+1)%gi.length;openLB(ci)});
     document.addEventListener("keydown",e=>{if(!lb.classList.contains("active"))return;if(e.key==="Escape")closeLB();if(e.key==="ArrowLeft")document.getElementById("lbPrev").click();if(e.key==="ArrowRight")document.getElementById("lbNext").click()});
 
-    // Donations
+    // =====================================================
+    // DONATIONS
+    // =====================================================
     let da=50,df="once",dm="paypal";
     const pct=Math.min((DONATE_CONFIG.raised/DONATE_CONFIG.goal)*100,100);
     document.getElementById("progressFill").style.width=pct+"%";
     document.getElementById("donateRaised").textContent="$"+DONATE_CONFIG.raised.toLocaleString();
-
     document.querySelectorAll(".donate-freq-btn").forEach(b=>{b.addEventListener("click",()=>{document.querySelectorAll(".donate-freq-btn").forEach(x=>x.classList.remove("active"));b.classList.add("active");df=b.dataset.freq;uDB()})});
     document.querySelectorAll(".donate-amount-btn").forEach(b=>{b.addEventListener("click",()=>{document.querySelectorAll(".donate-amount-btn").forEach(x=>x.classList.remove("selected"));b.classList.add("selected");const a=b.dataset.amount,w=document.getElementById("customAmountWrap");if(a==="custom"){w.style.display="flex";document.getElementById("customAmount").focus();da=parseInt(document.getElementById("customAmount").value)||0}else{w.style.display="none";da=parseInt(a)}uDB()})});
     document.getElementById("customAmount").addEventListener("input",e=>{da=parseInt(e.target.value)||0;uDB()});
     document.querySelectorAll(".pay-btn").forEach(b=>{b.addEventListener("click",()=>{document.querySelectorAll(".pay-btn").forEach(x=>x.classList.remove("selected"));b.classList.add("selected");dm=b.dataset.method;uDB()})});
-
     function uDB(){const b=document.getElementById("donateSubmit"),a=da>0?`$${da}`:"",f=df==="monthly"?"/month":"",n={paypal:"PayPal",stripe:"Card",venmo:"Venmo",cashapp:"Cash App"};b.textContent=`💚 Donate ${a}${f} via ${n[dm]}`;b.className="donate-submit "+dm}
-
     document.getElementById("donateSubmit").addEventListener("click",()=>{
       if(da<1){sDS("Please select an amount.","error");return}
       switch(dm){
         case"paypal":let p=DONATE_CONFIG.paypal_link;if(p.includes("paypal.me"))p+=`/${da}`;window.open(p,"_blank","noopener");sDS("✅ Redirecting to PayPal...","success");break;
         case"stripe":window.open(DONATE_CONFIG.stripe_link,"_blank","noopener");sDS("✅ Redirecting to payment...","success");break;
         case"venmo":oQR("Pay with Venmo",`Send $${da} to ${DONATE_CONFIG.venmo_username}`,DONATE_CONFIG.venmo_qr,DONATE_CONFIG.venmo_username,DONATE_CONFIG.venmo_link);break;
-        case"cashapp":oQR("Pay with Cash App",`Send $${da} to ${DONATE_CONFIG.cashapp_tag}`,DONATE_CONFIG.cashapp_qr,DONATE_CONFIG.cashapp_tag,DONATE_CONFIG.cashapp_link);break;
-      }
-    });
-
+        case"cashapp":oQR("Pay with Cash App",`Send $${da} to ${DONATE_CONFIG.cashapp_tag}`,DONATE_CONFIG.cashapp_qr,DONATE_CONFIG.cashapp_tag,DONATE_CONFIG.cashapp_link);break}});
     function sDS(m,t){const el=document.getElementById("donateStatus");el.textContent=sanitize(m);el.className="donate-status "+t;setTimeout(()=>{el.className="donate-status"},8000)}
-
     const qm=document.getElementById("qrModal");
     function oQR(title,desc,qr,user,link){document.getElementById("qrTitle").textContent=sanitize(title);document.getElementById("qrDesc").textContent=sanitize(desc);const q=document.getElementById("qrImage");if(qr){const i=document.createElement("img");i.src=qr;i.alt="QR";i.style.cssText="width:100%;height:100%;object-fit:contain;border-radius:8px";q.innerHTML="";q.appendChild(i)}else q.textContent="Add QR in config";const c=document.getElementById("qrCopyBtn");c.textContent=`📋 Copy: ${sanitize(user)}`;c.onclick=()=>{navigator.clipboard.writeText(user).then(()=>{c.textContent="✅ Copied!";setTimeout(()=>{c.textContent=`📋 Copy: ${sanitize(user)}`},2000)})};if(link)window.open(link,"_blank","noopener");qm.classList.add("active")}
     document.getElementById("qrClose").addEventListener("click",()=>qm.classList.remove("active"));
     qm.addEventListener("click",e=>{if(e.target===qm)qm.classList.remove("active")});
 
-    // Contact form
+    // =====================================================
+    // CONTACT FORM
+    // =====================================================
     const form=document.getElementById("contactForm"),sbtn=document.getElementById("submitBtn"),btxt=document.getElementById("btnText"),fst=document.getElementById("formStatus");
     form.addEventListener("submit",async e=>{
       e.preventDefault();
@@ -678,8 +870,7 @@
       if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em)){sFS("Please enter a valid email.","error");return}
       sbtn.disabled=true;btxt.textContent="Sending...";sFS("📤 Sending...","sending");
       try{const r=await fetch(`https://formsubmit.co/ajax/${FORMSUBMIT_HASH}`,{method:"POST",headers:{"Content-Type":"application/json",Accept:"application/json"},body:JSON.stringify({name:`${fn} ${ln}`,email:em,subject:su||"General",message:ms,_subject:`Community Fields: ${fn} — ${su||"Website Message"}`,_template:"table"})});const d=await r.json();if(d.success==="true"||d.success===true){sFS("✅ Message sent! We'll reply within 24 hours.","success");form.reset()}else throw new Error("Failed")}catch(err){console.error(err);sFS("❌ Error. Email info@communityfields.org directly.","error")}
-      sbtn.disabled=false;btxt.textContent="Send Message →"
-    });
+      sbtn.disabled=false;btxt.textContent="Send Message →"});
     function sFS(m,t){fst.textContent=m;fst.className="form-status "+t}
   </script>
 </body>
